@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aha", "Aha\Aha.csproj", "{DC218A46-162B-4EC1-B1D6-D08CAC2EBB16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC218A46-162B-4EC1-B1D6-D08CAC2EBB16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC218A46-162B-4EC1-B1D6-D08CAC2EBB16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC218A46-162B-4EC1-B1D6-D08CAC2EBB16}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DC218A46-162B-4EC1-B1D6-D08CAC2EBB16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC218A46-162B-4EC1-B1D6-D08CAC2EBB16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC218A46-162B-4EC1-B1D6-D08CAC2EBB16}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {47150DC4-E963-436C-8116-26976174C922}
+	EndGlobalSection
+EndGlobal
