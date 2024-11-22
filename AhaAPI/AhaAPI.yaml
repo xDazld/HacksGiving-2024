@@ -1,9 +1,11 @@
 openapi: 3.1.0
 info:
-  title: Title
-  description: Title
+  title: AhaAPI
+  description: |-
+    This is the API for Aha, the app made for Discovery World at the 2024 Hacksgiving 
+    Hackathon.
   version: 1.0.0
 servers:
   - url: 'https'
 paths:
-  
+
