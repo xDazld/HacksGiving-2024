@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "ahaapi"
+version = "0.1.0"
+description = ""
+authors = ["Patrick <pcr@doggo.dance>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.115.5"
+uvicorn = "^0.32.1"
+gpt4all = {extras = ["cuda"], version = "^2.8.2"}
+appwrite = "^7.0.1"
+urllib3 = {extras = ["brotli", "h2", "zstd"], version = "^2.2.3"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
