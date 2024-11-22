@@ -1,6 +1,9 @@
 version = 1
 
 [[analyzers]]
+name = "csharp"
+
+[[analyzers]]
 name = "python"
 
   [analyzers.meta]
@@ -11,3 +14,6 @@ name = "isort"
 
 [[transformers]]
 name = "black"
+
+[[transformers]]
+name = "dotnet-format"
