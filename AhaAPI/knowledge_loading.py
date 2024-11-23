@@ -5,4 +5,4 @@ class ExhibitEmbeds:
                                       index_col="Experience Name")
 
     def get_embedding(self, exhibit: str):
-        return self._embeddings.loc[exhibit]
+        return self._embeddings.loc[exhibit].to_markdown()
