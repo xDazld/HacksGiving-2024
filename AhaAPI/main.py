@@ -1,6 +1,5 @@
 from connection_manager import ConnectionManager
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
-from fastapi.responses import JSONResponse
 from gpt4all import GPT4All
 from user import User
 
@@ -36,12 +35,18 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int):
                 prompt = user.new_chat(data)
                 gen = prompt_model(user, prompt)
                 async for message in gen:
-                    await manager.emit(message, websocket)
+                    message_dict = {
+                        "message": message,
+                    }
+                    await manager.emit(message_dict, websocket)
             elif event == "chatMessage":
                 prompt = user.chat_message(data)
                 gen = prompt_model(user, prompt)
                 async for message in gen:
-                    await manager.emit(message, websocket)
+                    message_dict = {
+                        "message": message,
+                    }
+                    await manager.emit(message_dict, websocket)
 
     except WebSocketDisconnect:
         manager.disconnect(websocket)
