@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aha.Views.InitialContextQuiz.Q1"
+             Title="Q1">
+    <StackLayout Orientation="Vertical">
+        <Label 
+            Text="Please Answer the following questions to improve your experiece."
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Language / Lenguaje / Langue:"/>
+            <Picker ItemsSource="{Binding Languages}" SelectedIndexChanged="Picker_SelectedIndexChanged"/> 
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
