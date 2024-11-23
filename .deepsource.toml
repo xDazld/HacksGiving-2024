@@ -1,0 +1,25 @@
+version = 1
+
+[[analyzers]]
+name = "cxx"
+
+[[analyzers]]
+name = "csharp"
+
+[[analyzers]]
+name = "python"
+
+  [analyzers.meta]
+  runtime_version = "3.x.x"
+
+[[transformers]]
+name = "isort"
+
+[[transformers]]
+name = "black"
+
+[[transformers]]
+name = "dotnet-format"
+
+[[transformers]]
+name = "clang-format"
