@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Aha.Models
 {
-    internal struct LocationContext
+    internal struct LocationContext(String LocationName, String LocationDescription)
     {
-        String Code { get; set; }
         String LocationName { get; set; }
         String LocationDescription { get; set; }
     }
