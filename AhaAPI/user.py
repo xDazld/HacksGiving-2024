@@ -37,8 +37,8 @@ class User:
         self.user_data["history"] = history
 
     def new_chat(self, data: dict) -> str:
-        context = data["UserContext"]
+        context = data["userContext"]
         self.user_data["age"] = context["age"]
         self.user_data["language"] = context["language"]
         self.user_data["interests"] = context["interests"]
-        return ""
+        return "TODO PROMPT"

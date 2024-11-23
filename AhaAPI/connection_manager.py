@@ -12,9 +12,9 @@ class ConnectionManager:
     def disconnect(self, websocket: WebSocket):
         self.clients.remove(websocket)
 
-    async def emit(self, message: str, websocket: WebSocket):
+    async def emit(self, message: dict, websocket: WebSocket):
         await websocket.send_json(message)
 
-    async def broadcast(self, message: str):
+    async def broadcast(self, message: dict):
         for connection in self.clients:
             await connection.send_json(message)

@@ -36,8 +36,13 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int):
             if event == "newChat":
                 prompt = user.new_chat(data)
                 gen = prompt_model(user, prompt)
+                async for message in gen:
+                    await manager.emit(message, websocket)
             elif event == "chatMessage":
-                user.chat_message(data)
+                prompt = user.chat_message(data)
+                gen = prompt_model(user, prompt)
+                async for message in gen:
+                    await manager.emit(message, websocket)
 
     except WebSocketDisconnect:
         manager.disconnect(websocket)
