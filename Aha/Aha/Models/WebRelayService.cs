@@ -18,7 +18,7 @@ namespace Aha.Models;
     // Static field to hold the single instance of the client
     private static Socket? _instance;
 
-    public static readonly int portNumber = 8080;
+    public const int portNumber = 8080;
 
     IPEndPoint? ipEndPoint;
 
