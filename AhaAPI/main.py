@@ -1,8 +1,7 @@
+from connection_manager import ConnectionManager
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.responses import JSONResponse
 from gpt4all import GPT4All
-
-from connection_manager import ConnectionManager
 from user import User
 
 app = FastAPI()
