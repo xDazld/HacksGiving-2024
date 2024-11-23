@@ -1,4 +1,6 @@
-﻿namespace Aha
+﻿using Aha.Views.InitialContextQuiz;
+
+namespace Aha
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new QInitial();
         }
     }
 }
