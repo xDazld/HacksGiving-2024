@@ -13,7 +13,7 @@ class ConnectionManager:
         self.clients.remove(websocket)
 
     @staticmethod
-    async def emit(self, message: dict, websocket: WebSocket):
+    async def emit(message: dict, websocket: WebSocket):
         await websocket.send_json(message)
 
     async def broadcast(self, message: dict):
