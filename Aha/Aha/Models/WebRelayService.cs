@@ -40,7 +40,8 @@ namespace Aha.Models
 
             lock (_socket_lock)
             {
-                if (_instance == null) {
+                if (_instance == null)
+                {
 
                     //Dns.GetHostName will need to be removed if we want to test this nonlocally & Dns.GetHostEntry
                     //will be replaced with whichever host the service is talking to 
@@ -52,7 +53,7 @@ namespace Aha.Models
                     //Port 8080, defined at the top of file
                     ipEndPoint = new IPEndPoint(ipAddress, portNumber);
                     _instance = new Socket(ipEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-            }
+                }
             }
             return _instance;
         }
@@ -60,14 +61,14 @@ namespace Aha.Models
 
         internal async Task WebRelaySend(string message)
         {
-                Socket client = getSocket();
-                await client.ConnectAsync(ipEndPoint);
-                var messageBytes = Encoding.UTF8.GetBytes(message);
-                _ = await client.SendAsync(messageBytes, SocketFlags.None);
-                var buffer = new byte[1_024];
-                var received = await client.ReceiveAsync(buffer, SocketFlags.None);
-                var response = Encoding.UTF8.GetString(buffer, 0, received);
-                client.Shutdown(SocketShutdown.Both);
+            Socket client = getSocket();
+            await client.ConnectAsync(ipEndPoint);
+            var messageBytes = Encoding.UTF8.GetBytes(message);
+            _ = await client.SendAsync(messageBytes, SocketFlags.None);
+            var buffer = new byte[1_024];
+            var received = await client.ReceiveAsync(buffer, SocketFlags.None);
+            var response = Encoding.UTF8.GetString(buffer, 0, received);
+            client.Shutdown(SocketShutdown.Both);
         }
 
         internal async Task WebRelayReceive()
