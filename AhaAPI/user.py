@@ -42,3 +42,6 @@ class User:
         self.user_data["language"] = context["language"]
         self.user_data["interests"] = context["interests"]
         return "TODO PROMPT"
+
+    def chat_message(self, data: dict) -> str:
+        return "TODO PROMPT"
