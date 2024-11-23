@@ -5,6 +5,7 @@ from connection_manager import ConnectionManager
 from user import User
 
 app = FastAPI()
+
 model = GPT4All("Llama-3.2-1B-Instruct-Q4_0.gguf")
 
 manager = ConnectionManager()
@@ -35,13 +36,19 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int):
             if event == "newChat":
                 prompt = user.new_chat(data)
                 gen = prompt_model(user, prompt)
-                async for message in gen:
-                    await manager.emit(message, websocket)
+                for message in gen:
+                    message_dict = {
+                        "message": message,
+                    }
+                    await manager.emit(message_dict, websocket)
             elif event == "chatMessage":
                 prompt = user.chat_message(data)
                 gen = prompt_model(user, prompt)
-                async for message in gen:
-                    await manager.emit(message, websocket)
+                for message in gen:
+                    message_dict = {
+                        "message": message,
+                    }
+                    await manager.emit(message_dict, websocket)
 
     except WebSocketDisconnect:
         manager.disconnect(websocket)
