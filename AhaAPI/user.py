@@ -24,7 +24,7 @@ class User:
             }
 
     def save(self):
-        with open(f"{USER_DB_PATH}{self.user_data["id"]}.json", "w") as json_file:
+        with open(f"{USER_DB_PATH}{self.user_data['id']}.json", "w") as json_file:
             json.dump(self.user_data, json_file)
 
     def __del__(self):

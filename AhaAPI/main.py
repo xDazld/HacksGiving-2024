@@ -1,7 +1,7 @@
-from connection_manager import ConnectionManager
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
-from fastapi.responses import JSONResponse
 from gpt4all import GPT4All
+
+from connection_manager import ConnectionManager
 from user import User
 
 app = FastAPI()
@@ -9,7 +9,7 @@ model = GPT4All("Llama-3.2-1B-Instruct-Q4_0.gguf")
 
 manager = ConnectionManager()
 
-users: dict[int, User] = dict()
+users: dict[int, User] = {}
 
 
 def prompt_model(user: User, prompt: str):
