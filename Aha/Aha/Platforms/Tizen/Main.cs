@@ -2,8 +2,7 @@ using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using System;
 
-namespace Aha
-{
+namespace Aha;
     internal class Program : MauiApplication
     {
         protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
@@ -14,4 +13,4 @@ namespace Aha
             app.Run(args);
         }
     }
-}
+

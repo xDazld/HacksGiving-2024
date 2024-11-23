@@ -1,8 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace Aha
-{
+namespace Aha;
     public class Program
     {
         // This is the main entry point of the application.
@@ -13,4 +12,4 @@ namespace Aha
             UIApplication.Main(args, null, typeof(AppDelegate));
         }
     }
-}
+

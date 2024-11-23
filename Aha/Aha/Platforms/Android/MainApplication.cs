@@ -1,8 +1,8 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace Aha
-{
+namespace Aha;
+
     [Application]
     public class MainApplication : MauiApplication
     {
@@ -13,4 +13,3 @@ namespace Aha
 
         protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
     }
-}

@@ -1,5 +1,4 @@
-namespace Aha.Views
-{
+namespace Aha.Views;
     public partial class AIAssistant : ContentPage
     {
         public AIAssistant()
@@ -18,4 +17,4 @@ namespace Aha.Views
             await Camera.CaptureImage(CancellationToken.None);
         }
     }
-}
+

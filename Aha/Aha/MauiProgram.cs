@@ -1,8 +1,7 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 
-namespace Aha
-{
+namespace Aha;
     public static class MauiProgram
     {
         public static MauiApp CreateMauiApp()
@@ -24,4 +23,3 @@ namespace Aha
             return builder.Build();
         }
     }
-}
