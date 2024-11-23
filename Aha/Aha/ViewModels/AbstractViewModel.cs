@@ -5,8 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aha.ViewModels
-{
+namespace Aha.ViewModels;
     public abstract class AbstractViewModel : ObservableObject, IQueryAttributable
     {
         public void ApplyQueryAttributes(IDictionary<string, object> query)
@@ -14,4 +13,3 @@ namespace Aha.ViewModels
 
         }
     }
-}

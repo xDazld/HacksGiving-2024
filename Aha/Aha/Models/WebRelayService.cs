@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 //Used these docs https://learn.microsoft.com/en-us/dotnet/fundamentals/networking/sockets/socket-services?source=recommendations#create-a-socket-server
 
 
-namespace Aha.Models
-{
+namespace Aha.Models;
+
     internal class WebRelayService
     {
 
@@ -24,9 +24,6 @@ namespace Aha.Models
 
         // Lock for thread safety when initializing the singleton
         private static readonly object _socket_lock = new object();
-
-        // The Socket instance
-        public Socket client { get; private set; }
 
         // Private constructor to prevent instantiation outside the class. Enforces singleton pattern.
         private Socket getSocket()
@@ -58,7 +55,7 @@ namespace Aha.Models
         }
 
 
-        internal async Task WebRelaySend(string message)
+        internal async Task WebRelaySendAsync(string message)
         {
                 Socket client = getSocket();
                 await client.ConnectAsync(ipEndPoint);
@@ -70,7 +67,7 @@ namespace Aha.Models
                 client.Shutdown(SocketShutdown.Both);
         }
 
-        internal async Task WebRelayReceive()
+        internal async Task WebRelayReceiveAsync()
         {
             Socket listener = getSocket();
             listener.Bind(ipEndPoint);
@@ -86,4 +83,4 @@ namespace Aha.Models
 
         }
     }
-}
+
