@@ -3,7 +3,6 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from gpt4all import GPT4All
 from user import User
 
-
 app = FastAPI()
 
 model = GPT4All("Llama-3.2-1B-Instruct-Q4_0.gguf")
