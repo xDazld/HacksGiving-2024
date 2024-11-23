@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Aha.ViewModels;
     public abstract class AbstractViewModel : ObservableObject, IQueryAttributable
+{
+    public void ApplyQueryAttributes(IDictionary<string, object> query)
     {
-        public void ApplyQueryAttributes(IDictionary<string, object> query)
-        {
 
-        }
     }
+}
