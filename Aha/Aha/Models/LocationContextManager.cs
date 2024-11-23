@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Aha.Models;
     internal class LocationContextManager
-    {
-        Dictionary<string, LocationContext> URIToLocationContextMap = new Dictionary<string, LocationContext>();
+{
+    Dictionary<string, LocationContext> URIToLocationContextMap = new Dictionary<string, LocationContext>();
 
 
-    }
+}
 
