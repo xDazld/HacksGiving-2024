@@ -11,7 +11,12 @@ namespace Aha.Views.InitialContextQuiz
 
         private void Picker_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //(BindingContext as ContextQuizViewModel)
+            (BindingContext as ContextQuizViewModel).SetLanguage();
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new Q2((BindingContext as ContextQuizViewModel));
         }
     }
 }

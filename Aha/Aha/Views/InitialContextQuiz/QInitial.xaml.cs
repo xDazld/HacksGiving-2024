@@ -1,3 +1,5 @@
+using Aha.ViewModels;
+
 namespace Aha.Views.InitialContextQuiz;
 
 public partial class QInitial : ContentPage
