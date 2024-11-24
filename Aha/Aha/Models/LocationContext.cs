@@ -9,6 +9,6 @@ namespace Aha.Models
     internal struct LocationContext(String LocationName, String LocationDescription)
     {
         String LocationName { get; set; }
-        String LocationDescription { get; set; }
-    }
+    String LocationDescription { get; set; }
+}
 }

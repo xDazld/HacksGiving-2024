@@ -8,6 +8,6 @@ namespace Aha.ViewModels
 {
     public class BLEDectectionViewModel
     {
-        
+
     }
 }

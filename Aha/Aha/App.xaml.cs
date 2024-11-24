@@ -9,7 +9,7 @@ namespace Aha
         {
             InitializeComponent();
 
-            if(File.Exists(UserContextManager.getUserContext().FilePath))
+            if (File.Exists(UserContextManager.getUserContext().FilePath))
             {
                 MainPage = new AppShell();
             }
