@@ -35,6 +35,12 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int):
                     }
                     await manager.emit(message_dict, websocket)
                     print(message, end="")
+                await manager.emit(
+                    {
+                        "message": "\x04",
+                    },
+                    websocket,
+                )
             elif event == "chatMessage":
                 print(f"{client_id} sent chat message")
                 prompt = user.chat_message(data)
@@ -45,6 +51,12 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int):
                     }
                     await manager.emit(message_dict, websocket)
                     print(message, end="")
+                await manager.emit(
+                    {
+                        "message": "\x04",
+                    },
+                    websocket,
+                )
 
     except WebSocketDisconnect:
         manager.disconnect(websocket)
