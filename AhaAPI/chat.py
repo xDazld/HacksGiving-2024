@@ -4,10 +4,10 @@ from knowledge_loading import ExhibitEmbeds
 from user import User
 
 embeds = ExhibitEmbeds()
-model = GPT4All("Llama-3.2-1B-Instruct-Q4_0.gguf")
 
 
 def prompt_model(user: User, prompt: str, exhibit: str):
+    model = GPT4All("Llama-3.2-1B-Instruct-Q4_0.gguf")
     with model.chat_session(system_prompt="You are an AI-driven assistant that enhances visitor "
                                           "interactions with exhibits. Allow users to scale "
                                           "content difficulty and personalize their experience "
@@ -17,7 +17,8 @@ def prompt_model(user: User, prompt: str, exhibit: str):
                                           "expresses interest in.\nWith each prompt, you will be "
                                           "given information about the exhibit a user is at along "
                                           "with their prompt. You should inspire 'Aha!' moments. "
-                                          "Respond with empathy."):
+                                          "Respond with empathy. The user is " + str(
+        user.get_age()) + " years old and speaks " + user.user_data["language"] + "."):
         if len(user.get_history()) != 0:
             model._history = user.get_history()
         else:

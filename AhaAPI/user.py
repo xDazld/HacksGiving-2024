@@ -15,10 +15,7 @@ class User:
             with open(f"{USER_DB_PATH}{id}.json", "r") as json_file:
                 self.user_data = json.load(json_file)
         else:
-            self.user_data = {
-                "id": id,
-                "age": None,
-                "language": None,
+            self.user_data = {"id": id, "age": 10, "language": "en",
                 "interests": [],
                 "history": [],
             }
@@ -46,3 +43,9 @@ class User:
     @staticmethod
     def chat_message(data: dict) -> str:
         return "Tell me more about this exhibit."
+
+    def get_age(self) -> int:
+        return self.user_data["age"]
+
+    def get_language(self) -> str:
+        return self.user_data["language"]
