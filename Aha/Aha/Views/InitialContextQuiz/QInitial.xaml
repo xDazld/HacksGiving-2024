@@ -3,7 +3,9 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Aha.Views.InitialContextQuiz.QInitial"
-    Title="">
+    xmlns:strings="Aha.Resources"
+    Title=""
+    BackgroundColor="White">
 
     <ContentPage.Content>
         <Grid>
@@ -16,28 +18,28 @@
                 HorizontalOptions="Center">
 
                 <Label 
-                    Text="Greetings!"
+                    Text="{x:Static strings:AppResources.QInitialGreeting1}"
                     FontSize="36"
                     FontAttributes="Bold"
                     TextColor="Black"
                     HorizontalOptions="Center" />
 
                 <Label 
-                    Text="Welcome to Discovery World's immersive experience with A.I.!"
+                    Text="{x:Static strings:AppResources.QInitialGreeting2}"
                     FontSize="24"
                     TextColor="Black"
                     HorizontalTextAlignment="Center"
                     HorizontalOptions="Center" />
 
                 <Label 
-                    Text="Let's Get Started!"
+                    Text="{x:Static strings:AppResources.QInitialGreeting3}"
                     FontSize="24"
                     TextColor="Black"
                     HorizontalTextAlignment="Center"
                     HorizontalOptions="Center" />
 
                 <Button 
-                    Text="Start Survey →" 
+                    Text="{x:Static strings:AppResources.QInitialStartButton}" 
                     Clicked="Button_Clicked"
                     FontSize="20"
                     TextColor="White"

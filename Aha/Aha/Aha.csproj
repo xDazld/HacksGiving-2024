@@ -79,6 +79,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Update="Resources\AppResources.en-US.resx">
+	    <CustomToolNamespace>Resources</CustomToolNamespace>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\AppResources.resx">
+	    <CustomToolNamespace>Resources</CustomToolNamespace>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Views\BLEDetect.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

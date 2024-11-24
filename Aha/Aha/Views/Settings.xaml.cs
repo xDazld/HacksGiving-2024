@@ -12,5 +12,6 @@ public partial class Settings : ContentPage
     private void Button_Clicked(object sender, EventArgs e)
     {
 		File.Delete(UserContextManager.getUserContext().FilePath);
+		Application.Current.MainPage = new Views.InitialContextQuiz.QInitial();
     }
 }
