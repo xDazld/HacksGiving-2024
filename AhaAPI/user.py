@@ -15,7 +15,10 @@ class User:
             with open(f"{USER_DB_PATH}{id}.json", "r") as json_file:
                 self.user_data = json.load(json_file)
         else:
-            self.user_data = {"id": id, "age": 10, "language": "en",
+            self.user_data = {
+                "id": id,
+                "age": 10,
+                "language": "en",
                 "interests": [],
                 "history": [],
             }
