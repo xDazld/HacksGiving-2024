@@ -8,7 +8,7 @@ model = GPT4All("Llama-3.2-1B-Instruct-Q4_0.gguf")
 
 
 def prompt_model(user: User, prompt: str, exhibit: str):
-    with model.chat_session(system_prompt="You are an AI-driven solution that enhances visitor "
+    with model.chat_session(system_prompt="You are an AI-driven assistant that enhances visitor "
                                           "interactions with exhibits. Allow users to scale "
                                           "content difficulty and personalize their experience "
                                           "using age, language, interest, and topic. Draw "
@@ -23,4 +23,4 @@ def prompt_model(user: User, prompt: str, exhibit: str):
         else:
             user.set_history(model._history)
         return model.generate(f"Current Exhibit Context:\n{embeds.get_embedding(exhibit)}"
-                              f"\nUser Prompt:\n{prompt}", streaming=True)
+                              f"\nUser Prompt:\n{prompt}", streaming=True, max_tokens=2048)

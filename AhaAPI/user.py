@@ -41,8 +41,8 @@ class User:
         self.user_data["age"] = context["age"]
         self.user_data["language"] = context["language"]
         self.user_data["interests"] = context["interests"]
-        return "TODO PROMPT"
+        return "Tell me about this exhibit."
 
     @staticmethod
     def chat_message(data: dict) -> str:
-        return "TODO PROMPT"
+        return "Tell me more about this exhibit."
