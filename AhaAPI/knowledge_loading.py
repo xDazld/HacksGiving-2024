@@ -6,3 +6,10 @@ class ExhibitEmbeds:
 
     def get_embedding(self, exhibit: str):
         return self._embeddings.loc[exhibit].to_markdown()
+
+    def get_topics(self):
+        topics_series = self._embeddings['Topics'].dropna()
+        all_topics = set()
+        for topics in topics_series:
+            all_topics.update(topic.strip() for topic in topics.split(','))
+        return list(all_topics)

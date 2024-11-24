@@ -1,24 +1,17 @@
-from connection_manager import ConnectionManager
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
-from gpt4all import GPT4All
+
+from chat import prompt_model
+from connection_manager import ConnectionManager
+from knowledge_loading import ExhibitEmbeds
 from user import User
 
 app = FastAPI()
-
-model = GPT4All("Llama-3.2-1B-Instruct-Q4_0.gguf")
 
 manager = ConnectionManager()
 
 users: dict[int, User] = {}
 
-
-def prompt_model(user: User, prompt: str):
-    with model.chat_session():
-        if len(user.get_history()) != 0:
-            model._history = user.get_history()
-        else:
-            user.set_history(model._history)
-        return model.generate(f"{prompt}", streaming=True)
+embeds = ExhibitEmbeds()
 
 
 @app.websocket("/ws/{client_id}")
@@ -34,7 +27,7 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int):
 
             if event == "newChat":
                 prompt = user.new_chat(data)
-                gen = prompt_model(user, prompt)
+                gen = prompt_model(user, prompt, "All-Aboard")
                 for message in gen:
                     message_dict = {
                         "message": message,
@@ -42,7 +35,7 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int):
                     await manager.emit(message_dict, websocket)
             elif event == "chatMessage":
                 prompt = user.chat_message(data)
-                gen = prompt_model(user, prompt)
+                gen = prompt_model(user, prompt, "All-Aboard")
                 for message in gen:
                     message_dict = {
                         "message": message,
@@ -52,3 +45,8 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int):
     except WebSocketDisconnect:
         manager.disconnect(websocket)
         print(f"Client {client_id} disconnected")
+
+
+@app.get("/exhibits/topics")
+async def get_exhibit_topics():
+    return embeds.get_topics()
