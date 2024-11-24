@@ -13,9 +13,9 @@
     </ContentPage.BindingContext>
 
     <AbsoluteLayout>
-        <ActivityIndicator IsVisible="{Binding BackgroundTaskRunning}" 
+        <ActivityIndicator IsRunning="{Binding BackgroundTaskRunning}"
                            AbsoluteLayout.LayoutFlags="All"
-                           AbsoluteLayout.LayoutBounds="0,0,1,0.9"/>
+                           AbsoluteLayout.LayoutBounds="0.5,0.5,0.5,0.5"/>
         <!-- CollectionView to display chat messages -->
         <CollectionView
             AbsoluteLayout.LayoutFlags="All"
