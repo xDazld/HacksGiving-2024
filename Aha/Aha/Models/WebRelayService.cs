@@ -56,7 +56,7 @@ namespace Aha.Models
             }
 
             byte[] messageBytes = Encoding.UTF8.GetBytes(message);
-            await socket.SendAsync(messageBytes, SocketFlags.None);        
+            await socket.SendAsync(messageBytes, SocketFlags.None);
             await receiveTokens();
         }
 
@@ -67,7 +67,7 @@ namespace Aha.Models
 
             while (!StringToHex(response).Contains("04"))
             {
-                if(response.Length > 0)
+                if (response.Length > 0)
                 {
                     MessageReceived?.Invoke(response);
                 }
