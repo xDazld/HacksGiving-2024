@@ -10,6 +10,9 @@
     <ShellContent Title="Scan QR Code"
               ContentTemplate="{DataTemplate Views:AIAssistant}"
               Route="AIAssistant"/>
+    <ShellContent Title="Chat"
+                  ContentTemplate="{DataTemplate Views:Chat}"
+                Route="Chat"/>
     <!--<ShellContent
         Title="DiscoveryWorld.org"
         ContentTemplate="{DataTemplate Views:Website}"
