@@ -8,10 +8,13 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 fastapi = "^0.115.5"
-uvicorn = "^0.32.1"
+uvicorn = { extras = ["standard"], version = "^0.32.1" }
 gpt4all = {extras = ["cuda"], version = "^2.8.2"}
 appwrite = "^7.0.1"
 urllib3 = {extras = ["brotli", "h2", "zstd"], version = "^2.2.3"}
+pandas = { extras = ["excel", "html", "output-formatting"], version = "^2.2.3" }
+ipython = "^8.29.0"
+black = "^24.10.0"
 
 
 [build-system]

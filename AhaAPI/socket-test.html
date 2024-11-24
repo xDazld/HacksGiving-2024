@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test</title>
+  </head>
+  <body>
+    <p id="output"></p>
+    <button onclick="sendMessage()">Send Message</button>
+    <script>
+      var ws = new WebSocket("ws://localhost:8000/ws/123");
+      ws.onmessage = function (event) {
+        let data = JSON.parse(event.data);
+        out = document.getElementById("output");
+        out.innerText += data.message;
+      };
+      function sendMessage(event) {
+        let data = {
+          event: "newChat",
+          userContext: {
+            age: 20,
+            language: "english",
+            interests: ["music", "sports"],
+          },
+        };
+        ws.send(JSON.stringify(data));
+      }
+    </script>
+  </body>
+</html>
