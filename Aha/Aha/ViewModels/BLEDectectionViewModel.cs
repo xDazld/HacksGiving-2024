@@ -22,17 +22,20 @@ namespace Aha.ViewModels
 
         public BLEDectectionViewModel()
         {
+            StartChatCommand = new AsyncRelayCommand(StartChat);
+        }
+
+        public void Initialize()
+        {
             BleDeviceDetector = new BLEDeviceDetector();
             BleDeviceDetector.LocationContextDeviceDetected += OnLocationContextDeviceDetected;
             StartBLEScanning();
-            StartChatCommand = new AsyncRelayCommand(StartChat);
         }
 
         private async Task StartChat()
         {
             //Need to determine the closest device and use that as location context
             IDevice currentClosest = Devices.FirstOrDefault();
-            Debug.WriteLine($"Starting chat with device: {currentClosest.Name}");
             foreach (IDevice device in Devices)
             {
 #if ANDROID || IOS
@@ -50,7 +53,6 @@ namespace Aha.ViewModels
             string locationName = "";
             LocationContextManager.getLocationContextManager().BLEDeviceNameToLocationContext.TryGetValue(currentClosest.Name, out locationName);
 
-            Debug.WriteLine($"Nearest Location Context: {locationName}");
             LocationContextManager.getLocationContextManager().CurrentNearestLocationContext = new LocationContext(locationName);
             Shell.Current.Navigation.PushAsync(new Chat());
         }

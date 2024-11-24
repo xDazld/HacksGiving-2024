@@ -11,6 +11,7 @@ public class ChatViewModel : AbstractViewModel
 {
     private LocationContext closestLocation;
     public ObservableCollection<Message> Messages { get; } = new ObservableCollection<Message>();
+    public bool BackgroundTaskRunning { get; set; }
 
     private string _userInput;
     public string UserInput
@@ -27,7 +28,6 @@ public class ChatViewModel : AbstractViewModel
     }
 
     public ICommand SendCommand { get; }
-    private Message currentResponseFromAI;
 
     public ChatViewModel()
     {
@@ -38,22 +38,18 @@ public class ChatViewModel : AbstractViewModel
         SendCommand = new AsyncRelayCommand(OnSend);
     }
 
+    private string messageCurrent = "";
+    private Message messageToAddToChat = null;
     private void OnMessageEnd(string obj)
     {
-        currentResponseFromAI = null;
+        Messages.Add(new Message { Text = messageCurrent, IsUser = false });
+        messageCurrent = string.Empty;
+        OnPropertyChanged(nameof(Messages));
     }
 
     private void OnMessageReceived(string obj)
     {
-        if (currentResponseFromAI == null)
-        {
-            Message message = new Message { Text = obj, IsUser = false };
-            Messages.Add(message);
-            currentResponseFromAI = message;
-        }
-        currentResponseFromAI.Text += obj;
-        OnPropertyChanged(nameof(currentResponseFromAI));
-        OnPropertyChanged(nameof(Messages));
+        messageCurrent += obj;
     }
 
     private async Task OnSend()
@@ -74,31 +70,24 @@ public class ChatViewModel : AbstractViewModel
             }
             */
             //Possibly need to await this
-            await WebRelayService.GetWebRelayService().WebRelaySendAsync("\"event\": \"newChat\",\"prompt\": \""+ UserInput +"\",\"currentExhibit\": \""+closestLocation.LocationName+"\"}");
+            BackgroundTaskRunning = true;
+            OnPropertyChanged(nameof(BackgroundTaskRunning));
+            await WebRelayService.GetWebRelayService().WebRelaySendAsync("{\"event\": \"chatMessage\",\"prompt\": \""+ UserInput +"\",\"currentExhibit\": \""+"All-Aboard"+"\"}");
+            BackgroundTaskRunning = false;
+            OnPropertyChanged(nameof(BackgroundTaskRunning));
         }
     }
 
-
-    /*
-     {
-        "userContext": {
-            "age": 5,
-            "language": "English",
-            "interests": [
-                "automation",
-                "science"
-            ]
-        },
-        "event": "newChat",
-        "currentExhibit": "Exhibit 1"
-    }
-     */
     public async void SendInitialContextAndMessage()
     {
         string context = UserContextManager.getUserContext().getUserContextAsJson().Substring(1);
-        
+        BackgroundTaskRunning = true;
+        OnPropertyChanged(nameof(BackgroundTaskRunning));
         //string message = $",\"event\": \"newChat\",\"currentExhibit\": \"{Location.LocationName}\"";
-        string message = $",\"event\": \"newChat\",\"currentExhibit\": \""+closestLocation.LocationName+"\"";
-        await WebRelayService.GetWebRelayService().WebRelaySendAsync("{\"userContext\": " + context + message + "}");
+        string message = $",\"event\": \"newChat\",\"currentExhibit\": \""+"All-Aboard"+"\"";
+        var completeMessage = "{\"userContext\": {" + context + message + "}";
+        await WebRelayService.GetWebRelayService().WebRelaySendAsync(completeMessage);
+        BackgroundTaskRunning = false;
+        OnPropertyChanged(nameof(BackgroundTaskRunning));
     }
 }

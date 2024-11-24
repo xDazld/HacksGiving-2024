@@ -9,6 +9,11 @@ public partial class BLEDetect : ContentPage
 		InitializeComponent();
 	}
 
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        (BindingContext as BLEDectectionViewModel).Initialize();
+    }
     protected override void OnDisappearing()
     {
         base.OnDisappearing();
