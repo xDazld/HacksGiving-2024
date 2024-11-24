@@ -106,7 +106,9 @@ namespace Aha.Models
             }
 
             byte[] messageBytes = Encoding.UTF8.GetBytes(message);
+
             await socket.SendAsync(messageBytes, WebSocketMessageType.Text, true, CancellationToken.None);
+
             await receiveTokens();
         }
 

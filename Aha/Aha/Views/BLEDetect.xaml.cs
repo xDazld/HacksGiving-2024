@@ -8,7 +8,6 @@ public partial class BLEDetect : ContentPage
     {
         InitializeComponent();
     }
-
     protected override async void OnAppearing()
     {
         base.OnAppearing();

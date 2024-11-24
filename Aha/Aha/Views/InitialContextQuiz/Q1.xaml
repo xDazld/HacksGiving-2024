@@ -1,27 +1,75 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModels="clr-namespace:Aha.ViewModels"
-             x:Class="Aha.Views.InitialContextQuiz.Q1"
-             Title="Language Selection">
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:Aha.ViewModels"
+    xmlns:resx="clr-namespace:Aha.Resources.Localization"
+    x:Class="Aha.Views.InitialContextQuiz.Q1"
+    Title=""
+    BackgroundColor="White">
+
     <ContentPage.BindingContext>
-        <viewModels:ContextQuizViewModel/>
+        <viewModels:ContextQuizViewModel />
     </ContentPage.BindingContext>
-    <StackLayout Orientation="Vertical">
-        <Label 
-            Text="Select your language"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <StackLayout Orientation="Horizontal"
-                     HorizontalOptions="Center">
-            <Label Text="Language / Lenguaje / Langue:"/>
-            <Picker ItemsSource="{Binding Languages}"
-                    SelectedIndexChanged="Picker_SelectedIndexChanged"
-                    SelectedItem="{Binding SelectedLanguage}"/> 
-        </StackLayout>
-        <Button Text="Next" 
-            Clicked="Button_Clicked"
-            VerticalOptions="Center"
-            HorizontalOptions="Center"/>
-    </StackLayout>
+
+    <ContentPage.Content>
+        <Grid>
+
+            <!-- Top Color Bar -->
+            <BoxView 
+            HeightRequest="50"
+            BackgroundColor="#C1E0F4"
+            VerticalOptions="Start"
+            HorizontalOptions="FillAndExpand" />
+            
+            <!-- Content -->
+            <StackLayout
+                Padding="30"
+                Spacing="20"
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand">
+
+                <!-- Localized Label -->
+                <Label
+                    Text="Select Language"
+                    FontSize="32"
+                    FontAttributes="Bold"
+                    TextColor="Black"
+                    HorizontalOptions="Center" />
+
+                <!-- Language Selection -->
+                <StackLayout
+                    Orientation="Vertical"
+                    Spacing="10"
+                    HorizontalOptions="FillAndExpand">
+
+                    <Picker
+                        x:Name="LanguagePicker"
+                        ItemsSource="{Binding Languages}"
+                        SelectedItem="{Binding SelectedLanguage}"
+                        Title="{x:Static resx:AppResources.Q1ChooseLanguagePicker}"
+                        TitleColor="Black"
+                        TextColor="Black"
+                        FontSize="20"
+                        BackgroundColor="LightGray"
+                        Margin="0,10,0,0"
+                        HorizontalOptions="FillAndExpand"
+                        SelectedIndexChanged="Picker_SelectedIndexChanged" />
+                </StackLayout>
+
+                <!-- Localized Button -->
+                <Button
+                    Text="{x:Static resx:AppResources.QNextButton}"
+                    Clicked="Button_Clicked"
+                    FontSize="20"
+                    TextColor="Black"
+                    BackgroundColor="#C1E0F4"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    WidthRequest="200"
+                    Margin="0,20,0,0"
+                    HorizontalOptions="Center" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>

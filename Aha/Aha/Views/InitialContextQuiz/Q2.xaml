@@ -1,25 +1,101 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModels="clr-namespace:Aha.ViewModels"
-             x:Class="Aha.Views.InitialContextQuiz.Q2"
-             Title="Age Entry">
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:Aha.ViewModels"
+    x:Class="Aha.Views.InitialContextQuiz.Q2"
+    xmlns:resx="clr-namespace:Aha.Resources.Localization"
+    xmlns:strings="Aha.Resources"
+    Title=""
+    BackgroundColor="White">
+
+    <!-- Set the BindingContext to the ContextQuizViewModel -->
     <ContentPage.BindingContext>
-        <viewModels:ContextQuizViewModel/>
+        <viewModels:ContextQuizViewModel />
     </ContentPage.BindingContext>
-    <StackLayout Orientation="Vertical">
-        <Label 
-        Text="Please enter your age"
-        VerticalOptions="Center" 
-        HorizontalOptions="Center" />
-        <StackLayout Orientation="Horizontal"
-                 HorizontalOptions="Center">
-            <Label Text="Age:"/>
-            <Entry Text="{Binding Age, Mode=OneWayToSource}"/>
-        </StackLayout>
-        <Button Text="Next" 
-            Clicked="Button_Clicked"
-            VerticalOptions="Center"
-            HorizontalOptions="Center"/>
-    </StackLayout>
+
+    <ContentPage.Content>
+        <Grid>
+
+            <!-- Top Color Bar -->
+            <BoxView 
+            HeightRequest="50"
+            BackgroundColor="#C1E0F4"
+            VerticalOptions="Start"
+            HorizontalOptions="FillAndExpand" />
+
+            <!-- Content -->
+            <StackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand">
+                
+                
+                <StackLayout 
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand">
+
+                    <!-- Main Label -->
+                    <Label 
+                    Text="{x:Static resx:AppResources.Q2EnterYourAge1}"
+                    FontSize="36"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    HorizontalOptions="Center" />
+
+                    <!-- Age Entry Section -->
+                    <StackLayout 
+                    Orientation="Vertical"
+                    Spacing="10"
+                    HorizontalOptions="FillAndExpand">
+
+                        <!-- Wrapped Label with Rounded Corners -->
+                        <Frame
+                        BackgroundColor="LightGray"
+                        CornerRadius="25"
+                        Padding="10"
+                        HeightRequest="100"
+                        Margin="0,0,0,20"
+                        HasShadow="False">
+                            <Label 
+                                Text="Please enter your age:" 
+                                FontSize="18"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                TextColor="Black" />
+                        </Frame>
+
+                        <!-- Wrapped Entry with Rounded Corners -->
+                        <Frame
+                        BackgroundColor="LightGray"
+                        CornerRadius="15"
+                        Padding="5"
+                        HasShadow="False">
+                            <Entry 
+                            Text="{Binding Age, Mode=OneWayToSource}"
+                            Placeholder="{x:Static resx:AppResources.Q2EnterYourAge2}"
+                            FontSize="20"
+                            TextColor="Black"
+                            PlaceholderColor="Gray"
+                            Keyboard="Numeric"
+                            HorizontalOptions="FillAndExpand" />
+                        </Frame>
+                    </StackLayout>
+
+                    <!-- Next Button -->
+                    <Button 
+                    Text="{x:Static resx:AppResources.QNextButton}" 
+                    Clicked="Button_Clicked"
+                    FontSize="20"
+                    TextColor="Black"
+                    BackgroundColor="#C1E0F4"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    WidthRequest="200"
+                    Margin="0,20,0,0"
+                    HorizontalOptions="Center" />
+
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>

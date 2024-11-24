@@ -22,8 +22,10 @@
   </Dependencies>
 
   <Resources>
-    <Resource Language="x-generate" />
-  </Resources>
+    <Resource Language="en-US"/>
+    <Resource Language="es-ES"/>
+    <Resource Language="fr-FR"/>
+</Resources>
 
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="$targetentrypoint$">

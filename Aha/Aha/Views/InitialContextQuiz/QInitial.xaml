@@ -1,29 +1,60 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Aha.Views.InitialContextQuiz.QInitial"
-             Title="QInitial">
-    <VerticalStackLayout 
-        HorizontalOptions="CenterAndExpand" 
-        VerticalOptions="FillAndExpand">
-        <Label 
-            Text="Greetings!"
-            FontSize="Header"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Label 
-            Text="Welcome to Discovery World's emmersive expeirence with A.I.!"
-            FontSize="Large"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"/>
-        <Label 
-            Text="Lets Get Started!"
-            FontSize="Large"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"/>
-        <Button Text="Start Survey ->" 
-                Clicked="Button_Clicked"
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Aha.Views.InitialContextQuiz.QInitial"
+    xmlns:resx="clr-namespace:Aha.Resources.Localization"
+    Title=""
+    BackgroundColor="White">
+
+    <ContentPage.Content>
+        <Grid>
+            <!-- Top Color Bar -->
+            <BoxView 
+                HeightRequest="50"
+                BackgroundColor="#C1E0F4"
+                VerticalOptions="Start"
+                HorizontalOptions="FillAndExpand" />
+
+            <!-- Main Content -->
+            <StackLayout 
+                Padding="30"
+                Spacing="20"
                 VerticalOptions="Center"
-                HorizontalOptions="Center"/>
-    </VerticalStackLayout>
+                HorizontalOptions="Center">
+
+                <Label 
+                    Text="{x:Static resx:AppResources.QInitalGreeting1}"
+                    FontSize="36"
+                    FontAttributes="Bold"
+                    TextColor="Black"
+                    HorizontalOptions="Center" />
+
+                <Label 
+                    Text="{x:Static resx:AppResources.QInitialGreeting2}"
+                    FontSize="24"
+                    TextColor="Black"
+                    HorizontalTextAlignment="Center"
+                    HorizontalOptions="Center" />
+
+                <Label 
+                    Text="{x:Static resx:AppResources.QInitialGreeting3}"
+                    FontSize="24"
+                    TextColor="Black"
+                    HorizontalTextAlignment="Center"
+                    HorizontalOptions="Center" />
+
+                <Button 
+                    Text="{x:Static resx:AppResources.QInitialStartButton}" 
+                    Clicked="Button_Clicked"
+                    FontSize="20"
+                    TextColor="Black"
+                    BackgroundColor="#C1E0F4"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    WidthRequest="200"
+                    HorizontalOptions="Center" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>

@@ -8,6 +8,7 @@ namespace Aha.Models
 {
     public struct LocationContext(String LocationName)
     {
+
         public String LocationName { get; set; }
 }
 }
