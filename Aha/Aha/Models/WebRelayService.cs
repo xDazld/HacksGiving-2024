@@ -33,7 +33,11 @@ namespace Aha.Models
             socket = new Socket(ipEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
         }
 
-        // Private constructor to prevent instantiation outside the class. Enforces singleton pattern.
+        public static WebRelayService GetWebRelayService()
+        {
+            return _webRelayService;
+        }
+
         private Socket getSocket()
         {
             return socket;
