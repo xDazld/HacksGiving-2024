@@ -4,13 +4,13 @@ namespace Aha.Views;
 
 public partial class Settings : ContentPage
 {
-	public Settings()
-	{
-		InitializeComponent();
-	}
+    public Settings()
+    {
+        InitializeComponent();
+    }
 
     private void Button_Clicked(object sender, EventArgs e)
     {
-		File.Delete(UserContextManager.getUserContext().FilePath);
+        File.Delete(UserContextManager.getUserContext().FilePath);
     }
 }

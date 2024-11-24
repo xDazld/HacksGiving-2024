@@ -4,11 +4,11 @@ namespace Aha.Views.InitialContextQuiz;
 
 public partial class Q2 : ContentPage
 {
-	public Q2(ContextQuizViewModel bindingContext)
-	{
-		InitializeComponent();
+    public Q2(ContextQuizViewModel bindingContext)
+    {
+        InitializeComponent();
         BindingContext = bindingContext;
-	}
+    }
 
     private void Button_Clicked(object sender, EventArgs e)
     {

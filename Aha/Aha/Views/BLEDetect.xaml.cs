@@ -4,10 +4,10 @@ namespace Aha.Views;
 
 public partial class BLEDetect : ContentPage
 {
-	public BLEDetect()
-	{
-		InitializeComponent();
-	}
+    public BLEDetect()
+    {
+        InitializeComponent();
+    }
 
     protected override async void OnAppearing()
     {

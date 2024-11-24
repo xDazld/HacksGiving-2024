@@ -15,7 +15,7 @@ namespace Aha.Models
         private LocationContextManager()
         {
             //Read CSV For location Contexts
-            using(StreamReader reader = new StreamReader(FileSystem.AppDataDirectory+"/LocationContexts.csv"))
+            using (StreamReader reader = new StreamReader(FileSystem.AppDataDirectory + "/LocationContexts.csv"))
             {
                 while (!reader.EndOfStream)
                 {

@@ -106,7 +106,7 @@ namespace Aha.Models
             }
 
             byte[] messageBytes = Encoding.UTF8.GetBytes(message);
-            await socket.SendAsync(messageBytes, WebSocketMessageType.Text, true, CancellationToken.None);        
+            await socket.SendAsync(messageBytes, WebSocketMessageType.Text, true, CancellationToken.None);
             await receiveTokens();
         }
 
@@ -117,7 +117,7 @@ namespace Aha.Models
             int count = 0;
             while (!response.Contains("END CHAT"))
             {
-                if(response.Length > 0)
+                if (response.Length > 0)
                 {
                     MessageReceived?.Invoke(response);
                 }
