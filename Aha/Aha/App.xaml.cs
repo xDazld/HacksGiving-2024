@@ -1,4 +1,7 @@
-﻿namespace Aha
+﻿using Aha.Models;
+using Aha.Views.InitialContextQuiz;
+
+namespace Aha
 {
     public partial class App : Application
     {
@@ -6,7 +9,14 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            if(File.Exists(UserContextManager.getUserContext().FilePath))
+            {
+                MainPage = new AppShell();
+            }
+            else
+            {
+                MainPage = new QInitial();
+            }
         }
     }
 }

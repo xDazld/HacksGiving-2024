@@ -6,13 +6,13 @@
     xmlns:Views="clr-namespace:Aha.Views"
     Shell.FlyoutBehavior="Flyout"
     Title="Aha">
-    
-    <ShellContent Title="Scan QR Code"
-              ContentTemplate="{DataTemplate Views:AIAssistant}"
-              Route="AIAssistant"/>
+  
     <ShellContent Title="Chat"
                   ContentTemplate="{DataTemplate Views:Chat}"
                 Route="Chat"/>
+    <ShellContent Title="Settings"
+              ContentTemplate="{DataTemplate Views:Settings}"
+              Route="Settings"/>
     <!--<ShellContent
         Title="DiscoveryWorld.org"
         ContentTemplate="{DataTemplate Views:Website}"
