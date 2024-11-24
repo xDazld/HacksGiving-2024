@@ -28,7 +28,7 @@ def prompt_model(user: User, prompt: str):
         + str(user.get_age())
         + " years old and speaks "
         + user.user_data["language"]
-        + "."
+        + ". Limit responses to 1 paragraph."
     ):
         if len(user.get_history()) != 0:
             model._history = user.get_history()
