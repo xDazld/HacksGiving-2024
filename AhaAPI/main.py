@@ -15,7 +15,12 @@ embeds = ExhibitEmbeds()
 
 
 @app.websocket("/ws/{client_id}")
-async def websocket_endpoint(websocket: WebSocket, client_id: int):
+async def websocket_endpoint(websocket: WebSocket, client_id: int) -> None:
+    """
+    Handles websocket connections
+    :param websocket: the websocket connection
+    :param client_id: the client id
+    """
     await manager.connect(websocket)
     user = User(client_id)
     users[client_id] = user
@@ -64,5 +69,8 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int):
 
 
 @app.get("/exhibits/topics")
-async def get_exhibit_topics():
+async def get_exhibit_topics() -> None:
+    """
+    Get exhibit topics
+    """
     return embeds.get_topics()

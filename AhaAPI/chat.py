@@ -7,6 +7,12 @@ embeds = ExhibitEmbeds()
 
 
 def prompt_model(user: User, prompt: str):
+    """
+    Generate a response to a user prompt
+    :param user: the user that made the prompt
+    :param prompt: the prompt given by the user
+    :return: Generator of tokens for response
+    """
     model = GPT4All("Llama-3.2-1B-Instruct-Q4_0.gguf")
     with model.chat_session(
         system_prompt="You are an AI-driven assistant that enhances visitor "
