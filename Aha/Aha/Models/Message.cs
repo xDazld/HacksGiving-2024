@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aha.Models
-{
-    public class Message
-    {
-        public string Text { get; set; }
-        public bool IsUser { get; set; }
-    }
-}
+namespace Aha.Models;
 
+public class Message
+{
+    public string Text { get; set; }
+    public bool IsUser { get; set; }
+}

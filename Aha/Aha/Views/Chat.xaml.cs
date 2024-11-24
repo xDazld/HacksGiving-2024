@@ -5,13 +5,12 @@ using Aha.Models;
 using System.Collections.Specialized;
 using System.Linq;
 
-namespace Aha.Views
+namespace Aha.Views;
+
+public partial class Chat : ContentPage
 {
-    public partial class Chat : ContentPage
+    public Chat()
     {
-        public Chat()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }
