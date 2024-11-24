@@ -79,6 +79,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\BLEDetect.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\InitialContextQuiz\Q1.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
