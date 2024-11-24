@@ -8,9 +8,18 @@
         <viewModels:BLEDectectionViewModel/>
     </ContentPage.BindingContext>
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <CollectionView
+            ItemsSource="{Binding Devices}"
+            ItemsUpdatingScrollMode="KeepLastItemInView"
+            SelectionMode="None">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding Name}"/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="Get more information on the nearest exhibit"
+                Command="{Binding StartChatCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

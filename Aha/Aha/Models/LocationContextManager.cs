@@ -6,23 +6,29 @@ using System.Threading.Tasks;
 
 namespace Aha.Models
 {
-    internal class LocationContextManager
+    public class LocationContextManager
     {
-        Dictionary<string, LocationContext> URIToLocationContextMap = new Dictionary<string, LocationContext>();
-        List<LocationContext> LocationHistory = new List<LocationContext>();
-
-        public static LocationContextManager LocationContextManagerInstance { get; } = new LocationContextManager();
+        public Dictionary<string, string> BLEDeviceNameToLocationContext = new Dictionary<string, string>();
+        //List<LocationContext> LocationHistory = new List<LocationContext>(); //For the future if it becomes necessary
+        public LocationContext CurrentNearestLocationContext { get; set; }
+        private static LocationContextManager LocationContextManagerInstance { get; } = new LocationContextManager();
         private LocationContextManager()
         {
             //Read CSV For location Contexts
-            using (StreamReader reader = new StreamReader("LocationContexts.csv"))
+
+            using (StreamReader reader = new StreamReader(FileSystem.AppDataDirectory + "/LocationContexts.csv"))
             {
                 while (!reader.EndOfStream)
                 {
                     string[] line = reader.ReadLine().Split(',');
-                    URIToLocationContextMap.Add(line[0], new LocationContext(line[1], line[2]));
+                    BLEDeviceNameToLocationContext.Add(line[0], line[1]);
                 }
             }
+        }
+
+        public static LocationContextManager getLocationContextManager()
+        {
+            return LocationContextManagerInstance;
         }
     }
 }

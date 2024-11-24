@@ -13,4 +13,10 @@ public partial class Chat : ContentPage
     {
         InitializeComponent();
     }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        (BindingContext as ChatViewModel).SendInitialContextAndMessage();
+    }
 }

@@ -16,14 +16,10 @@
             </Grid.ColumnDefinitions>
         </Grid>
         </Shell.TitleView>
-
-        <!-- Existing ShellContent -->
-        <ShellContent 
-        Title="Chat"
-        ContentTemplate="{DataTemplate Views:Chat}"
-        Route="Chat" />
-        <ShellContent 
-        Title="Settings"
-        ContentTemplate="{DataTemplate Views:Settings}"
-        Route="Settings" />
+    <ShellContent Title="Automatic Assistance"
+          ContentTemplate="{DataTemplate Views:BLEDetect}"
+        Route="BLEDetect"/>
+    <ShellContent Title="Settings"
+          ContentTemplate="{DataTemplate Views:Settings}"
+          Route="Settings"/>
 </Shell>

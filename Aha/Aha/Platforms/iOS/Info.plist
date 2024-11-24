@@ -36,5 +36,18 @@
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<!--for connecting to devices (client)-->
+		<string>bluetooth-central</string>
+		<!--for server configurations if needed-->
+		<string>bluetooth-peripheral</string>
+	</array>
+
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Bluetooth is used to determine your location in Discovery World</string>
+
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Bluetooth is used to determine your location in Discovery World</string>
 </dict>
 </plist>
