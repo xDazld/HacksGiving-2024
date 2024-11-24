@@ -14,6 +14,7 @@ appwrite = "^7.0.1"
 urllib3 = {extras = ["brotli", "h2", "zstd"], version = "^2.2.3"}
 pandas = { extras = ["excel", "html", "output-formatting"], version = "^2.2.3" }
 ipython = "^8.29.0"
+black = "^24.10.0"
 
 
 [build-system]
