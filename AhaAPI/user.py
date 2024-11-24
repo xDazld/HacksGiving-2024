@@ -41,14 +41,18 @@ class User:
         self.user_data["age"] = context["age"]
         self.user_data["language"] = context["language"]
         self.user_data["interests"] = context["interests"]
+        self.user_data["currentExhibit"] = data["currentExhibit"]
         return "Tell me about this exhibit."
 
-    @staticmethod
-    def chat_message(data: dict) -> str:
-        return "Tell me more about this exhibit."
+    def chat_message(self, data: dict) -> str:
+        self.user_data["currentExhibit"] = data["currentExhibit"]
+        return data["prompt"]
 
     def get_age(self) -> int:
         return self.user_data["age"]
 
     def get_language(self) -> str:
         return self.user_data["language"]
+
+    def get_exhibit(self) -> str:
+        return self.user_data["currentExhibit"]

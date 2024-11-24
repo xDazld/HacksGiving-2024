@@ -28,7 +28,7 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int):
             if event == "newChat":
                 print(f"{client_id} made new chat")
                 prompt = user.new_chat(data)
-                gen = prompt_model(user, prompt, "All-Aboard")
+                gen = prompt_model(user, prompt)
                 for message in gen:
                     message_dict = {
                         "message": message,
@@ -44,7 +44,7 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int):
             elif event == "chatMessage":
                 print(f"{client_id} sent chat message")
                 prompt = user.chat_message(data)
-                gen = prompt_model(user, prompt, "All-Aboard")
+                gen = prompt_model(user, prompt)
                 for message in gen:
                     message_dict = {
                         "message": message,

@@ -6,7 +6,7 @@ from user import User
 embeds = ExhibitEmbeds()
 
 
-def prompt_model(user: User, prompt: str, exhibit: str):
+def prompt_model(user: User, prompt: str):
     model = GPT4All("Llama-3.2-1B-Instruct-Q4_0.gguf")
     with model.chat_session(
         system_prompt="You are an AI-driven assistant that enhances visitor "
@@ -29,7 +29,7 @@ def prompt_model(user: User, prompt: str, exhibit: str):
         else:
             user.set_history(model._history)
         return model.generate(
-            f"Current Exhibit Context:\n{embeds.get_embedding(exhibit)}"
+            f"Current Exhibit Context:\n{embeds.get_embedding(user.get_exhibit())}"
             f"\nUser Prompt:\n{prompt}",
             streaming=True,
             max_tokens=2048,
