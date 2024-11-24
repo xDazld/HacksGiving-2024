@@ -40,7 +40,12 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int) -> None:
                     }
                     await manager.emit_text(message_dict, websocket)
                     print(message, end="")
-                await manager.emit_text("END CHAT", websocket)
+                await manager.emit(
+                    {
+                        "message": "END CHAT",
+                    },
+                    websocket,
+                )
                 print()
             elif event == "chatMessage":
                 print(f"{client_id} sent chat message")
@@ -53,7 +58,12 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int) -> None:
                     }
                     await manager.emit_text(message_dict, websocket)
                     print(message, end="")
-                await manager.emit_text("END CHAT", websocket)
+                await manager.emit(
+                    {
+                        "message": "END CHAT",
+                    },
+                    websocket,
+                )
                 print()
 
     except WebSocketDisconnect:
