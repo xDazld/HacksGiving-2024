@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Aha.ViewModels"
+             x:Class="Aha.Views.InitialContextQuiz.Q3"
+             Title="Select Interests">
+    <ContentPage.BindingContext>
+        <viewModels:ContextQuizViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            <Setter Property="Margin" Value="10,0"/>
+        </Style>
+        <Style TargetType="CheckBox">
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="BackgroundColor" Value="#007AFF"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="20"/>
+        </Style>
+    </ContentPage.Resources>
+    <StackLayout Orientation="Vertical" Padding="20" Spacing="10">
+        <Label 
+            Text="Check the box next to subjects that interest you."
+            HorizontalOptions="Center" 
+            FontAttributes="Bold"
+            FontSize="20"
+            Margin="0,20,0,10"/>
+        <Grid ColumnDefinitions="Auto, Auto" RowSpacing="10" HorizontalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Text="Science" Grid.Row="0" Grid.Column="0"/>
+            <CheckBox IsChecked="{Binding Science, Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+
+            <Label Text="Geography" Grid.Row="1" Grid.Column="0"/>
+            <CheckBox IsChecked="{Binding Geography, Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
+
+            <Label Text="History" Grid.Row="2" Grid.Column="0"/>
+            <CheckBox IsChecked="{Binding History, Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
+
+            <Label Text="Oceans" Grid.Row="3" Grid.Column="0"/>
+            <CheckBox IsChecked="{Binding Oceans, Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
+
+            <Label Text="Automation" Grid.Row="4" Grid.Column="0"/>
+            <CheckBox IsChecked="{Binding Automation, Mode=TwoWay}" Grid.Row="4" Grid.Column="1"/>
+
+            <Label Text="Technology" Grid.Row="5" Grid.Column="0"/>
+            <CheckBox IsChecked="{Binding Technology, Mode=TwoWay}" Grid.Row="5" Grid.Column="1"/>
+
+            <Label Text="Engineering" Grid.Row="6" Grid.Column="0"/>
+            <CheckBox IsChecked="{Binding Engineering, Mode=TwoWay}" Grid.Row="6" Grid.Column="1"/>
+
+            <Label Text="Art" Grid.Row="7" Grid.Column="0"/>
+            <CheckBox IsChecked="{Binding Art, Mode=TwoWay}" Grid.Row="7" Grid.Column="1"/>
+
+            <Label Text="Music" Grid.Row="8" Grid.Column="0"/>
+            <CheckBox IsChecked="{Binding Music, Mode=TwoWay}" Grid.Row="8" Grid.Column="1"/>
+        </Grid>
+        <Button Text="Finish" Command="{Binding SaveContextCommand}"/>
+    </StackLayout>
+</ContentPage>

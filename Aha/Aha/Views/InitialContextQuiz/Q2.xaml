@@ -2,22 +2,20 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:Aha.ViewModels"
-             x:Class="Aha.Views.InitialContextQuiz.Q1"
-             Title="Language Selection">
+             x:Class="Aha.Views.InitialContextQuiz.Q2"
+             Title="Age Entry">
     <ContentPage.BindingContext>
         <viewModels:ContextQuizViewModel/>
     </ContentPage.BindingContext>
     <StackLayout Orientation="Vertical">
         <Label 
-            Text="Select your language"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        Text="Please enter your age"
+        VerticalOptions="Center" 
+        HorizontalOptions="Center" />
         <StackLayout Orientation="Horizontal"
-                     HorizontalOptions="Center">
-            <Label Text="Language / Lenguaje / Langue:"/>
-            <Picker ItemsSource="{Binding Languages}"
-                    SelectedIndexChanged="Picker_SelectedIndexChanged"
-                    SelectedItem="{Binding SelectedLanguage}"/> 
+                 HorizontalOptions="Center">
+            <Label Text="Age:"/>
+            <Entry Text="{Binding Age, Mode=OneWayToSource}"/>
         </StackLayout>
         <Button Text="Next" 
             Clicked="Button_Clicked"
