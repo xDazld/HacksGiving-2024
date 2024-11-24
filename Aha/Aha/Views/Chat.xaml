@@ -89,6 +89,8 @@
                 Command="{Binding SendCommand}"
                 Grid.Column="1" 
                 HorizontalOptions="End"
+                BackgroundColor="#C1E0F4"
+                TextColor="Black"
                 Margin="5,0,0,0"/>
         </Grid>
     </AbsoluteLayout>

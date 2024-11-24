@@ -6,15 +6,24 @@
     xmlns:Views="clr-namespace:Aha.Views"
     Shell.FlyoutBehavior="Flyout"
     Title="Aha">
-  
-    <ShellContent Title="Chat"
-                  ContentTemplate="{DataTemplate Views:Chat}"
-                Route="Chat"/>
-    <ShellContent Title="Settings"
-              ContentTemplate="{DataTemplate Views:Settings}"
-              Route="Settings"/>
-    <!--<ShellContent
-        Title="DiscoveryWorld.org"
-        ContentTemplate="{DataTemplate Views:Website}"
-        Route="Website" />-->
+
+    <!-- Define the TitleView for the top bar -->
+        <Shell.TitleView>
+            <Grid Padding="10" BackgroundColor="#C1E0F4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+        </Grid>
+        </Shell.TitleView>
+
+        <!-- Existing ShellContent -->
+        <ShellContent 
+        Title="Chat"
+        ContentTemplate="{DataTemplate Views:Chat}"
+        Route="Chat" />
+        <ShellContent 
+        Title="Settings"
+        ContentTemplate="{DataTemplate Views:Settings}"
+        Route="Settings" />
 </Shell>

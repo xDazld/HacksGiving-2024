@@ -14,6 +14,14 @@
 
     <ContentPage.Content>
         <Grid>
+
+            <!-- Top Color Bar -->
+            <BoxView 
+            HeightRequest="50"
+            BackgroundColor="#C1E0F4"
+            VerticalOptions="Start"
+            HorizontalOptions="FillAndExpand" />
+            
             <!-- Content -->
             <StackLayout
                 Padding="30"
@@ -43,7 +51,7 @@
                         TitleColor="Black"
                         TextColor="Black"
                         FontSize="20"
-                        BackgroundColor="#346beb"
+                        BackgroundColor="LightGray"
                         Margin="0,10,0,0"
                         HorizontalOptions="FillAndExpand"
                         SelectedIndexChanged="Picker_SelectedIndexChanged" />
@@ -55,7 +63,7 @@
                     Clicked="Button_Clicked"
                     FontSize="20"
                     TextColor="Black"
-                    BackgroundColor="#346beb"
+                    BackgroundColor="#C1E0F4"
                     CornerRadius="25"
                     HeightRequest="50"
                     WidthRequest="200"

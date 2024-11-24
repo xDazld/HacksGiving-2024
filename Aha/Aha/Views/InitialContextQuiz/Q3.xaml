@@ -16,160 +16,203 @@
 
     <ContentPage.Content>
         <Grid>
+            <!-- Top Color Bar -->
+            <BoxView 
+                HeightRequest="50"
+                BackgroundColor="#C1E0F4"
+                VerticalOptions="Start"
+                HorizontalOptions="FillAndExpand" />
 
             <!-- Content -->
-                <ScrollView>
-                    <StackLayout 
+            <ScrollView>
+                <StackLayout 
                     Padding="30"
                     Spacing="20"
                     VerticalOptions="Center"
                     HorizontalOptions="CenterAndExpand">
 
-                        <Label 
-                        Text="{x:Static resx:AppResources.Q3SelectInterests1}"
-                        FontSize="36"
-                        FontAttributes="Bold"
-                        TextColor="Black"
-                        HorizontalOptions="Center" />
-
-                        <Label 
+                    <Label 
                         Text="{x:Static resx:AppResources.Q3SelectInterests2}"
                         FontSize="24"
                         TextColor="Black"
                         HorizontalTextAlignment="Center"
-                        HorizontalOptions="Center"
-                        Margin="0,0,0,20" />
+                        HorizontalOptions="Center" />
 
-                        <!-- Interests Selection -->
-                        <Grid 
+                    <!-- Interests Selection -->
+                    <Grid 
                         ColumnDefinitions="*, *" 
                         RowDefinitions="Auto" 
                         ColumnSpacing="10" 
                         RowSpacing="10"
                         HorizontalOptions="CenterAndExpand">
 
-                            <!-- First Column -->
-                            <StackLayout Grid.Column="0" Spacing="15">
-                                <StackLayout Orientation="Horizontal" Spacing="10">
-                                    <CheckBox 
+                        <!-- First Column -->
+                        <StackLayout Grid.Column="0" Spacing="5">
+                            <!-- First Interest -->
+                            <Grid ColumnDefinitions="Auto, *" HorizontalOptions="FillAndExpand">
+                                <CheckBox 
+                                    Grid.Column="0"
                                     IsChecked="{Binding Science}" 
-                                    Color="#346beb" />
-                                    <Label 
+                                    Color="#346beb" 
+                                    VerticalOptions="Center" />
+                                <Label 
+                                    Grid.Column="1"
                                     Text="{x:Static resx:AppResources.Q3Science}"
                                     FontSize="20"
                                     TextColor="Black"
-                                    VerticalOptions="Center" />
-                                </StackLayout>
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="StartAndExpand" />
+                            </Grid>
 
-                                <StackLayout Orientation="Horizontal" Spacing="10">
-                                    <CheckBox 
+                            <!-- Second Interest -->
+                            <Grid ColumnDefinitions="Auto, *" HorizontalOptions="FillAndExpand">
+                                <CheckBox 
+                                    Grid.Column="0"
                                     IsChecked="{Binding Geography}" 
-                                    Color="#346beb" />
-                                    <Label 
+                                    Color="#346beb" 
+                                    VerticalOptions="Center" />
+                                <Label 
+                                    Grid.Column="1"
                                     Text="{x:Static resx:AppResources.Q3Geography}"
                                     FontSize="20"
                                     TextColor="Black"
-                                    VerticalOptions="Center" />
-                                </StackLayout>
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="StartAndExpand" />
+                            </Grid>
 
-                                <StackLayout Orientation="Horizontal" Spacing="10">
-                                    <CheckBox 
+                            <!-- Third Interest -->
+                            <Grid ColumnDefinitions="Auto, *" HorizontalOptions="FillAndExpand">
+                                <CheckBox 
+                                    Grid.Column="0"
                                     IsChecked="{Binding History}" 
-                                    Color="#346beb" />
-                                    <Label 
+                                    Color="#346beb" 
+                                    VerticalOptions="Center" />
+                                <Label 
+                                    Grid.Column="1"
                                     Text="{x:Static resx:AppResources.Q3History}"
                                     FontSize="20"
                                     TextColor="Black"
-                                    VerticalOptions="Center" />
-                                </StackLayout>
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="StartAndExpand" />
+                            </Grid>
 
-                                <StackLayout Orientation="Horizontal" Spacing="10">
-                                    <CheckBox 
+                            <!-- Fourth Interest -->
+                            <Grid ColumnDefinitions="Auto, *" HorizontalOptions="FillAndExpand">
+                                <CheckBox 
+                                    Grid.Column="0"
                                     IsChecked="{Binding Oceans}" 
-                                    Color="#346beb" />
-                                    <Label 
+                                    Color="#346beb" 
+                                    VerticalOptions="Center" />
+                                <Label 
+                                    Grid.Column="1"
                                     Text="{x:Static resx:AppResources.Q3Oceans}"
                                     FontSize="20"
                                     TextColor="Black"
-                                    VerticalOptions="Center" />
-                                </StackLayout>
-                            </StackLayout>
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="StartAndExpand" />
+                            </Grid>
+                        </StackLayout>
 
-                            <!-- Second Column -->
-                            <StackLayout Grid.Column="1" Spacing="15">
-                                <StackLayout Orientation="Horizontal" Spacing="10">
-                                    <CheckBox 
+                        <!-- Second Column -->
+                        <StackLayout Grid.Column="1" Spacing="5">
+                            <!-- First Interest -->
+                            <Grid ColumnDefinitions="Auto, *" HorizontalOptions="FillAndExpand">
+                                <CheckBox 
+                                    Grid.Column="0"
                                     IsChecked="{Binding Automation}" 
-                                    Color="#346beb" />
-                                    <Label 
+                                    Color="#346beb" 
+                                    VerticalOptions="Center" />
+                                <Label 
+                                    Grid.Column="1"
                                     Text="{x:Static resx:AppResources.Q3Automation}"
                                     FontSize="20"
                                     TextColor="Black"
-                                    VerticalOptions="Center" />
-                                </StackLayout>
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="StartAndExpand" />
+                            </Grid>
 
-                                <StackLayout Orientation="Horizontal" Spacing="10">
-                                    <CheckBox 
+                            <!-- Second Interest -->
+                            <Grid ColumnDefinitions="Auto, *" HorizontalOptions="FillAndExpand">
+                                <CheckBox 
+                                    Grid.Column="0"
                                     IsChecked="{Binding Technology}" 
-                                    Color="#346beb" />
-                                    <Label 
+                                    Color="#346beb" 
+                                    VerticalOptions="Center" />
+                                <Label 
+                                    Grid.Column="1"
                                     Text="{x:Static resx:AppResources.Q3Technology}"
                                     FontSize="20"
                                     TextColor="Black"
-                                    VerticalOptions="Center" />
-                                </StackLayout>
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="StartAndExpand" />
+                            </Grid>
 
-                                <StackLayout Orientation="Horizontal" Spacing="10">
-                                    <CheckBox 
+                            <!-- Third Interest -->
+                            <Grid ColumnDefinitions="Auto, *" HorizontalOptions="FillAndExpand">
+                                <CheckBox 
+                                    Grid.Column="0"
                                     IsChecked="{Binding Engineering}" 
-                                    Color="#346beb" />
-                                    <Label 
+                                    Color="#346beb" 
+                                    VerticalOptions="Center" />
+                                <Label 
+                                    Grid.Column="1"
                                     Text="{x:Static resx:AppResources.Q3Engineering}"
                                     FontSize="20"
                                     TextColor="Black"
-                                    VerticalOptions="Center" />
-                                </StackLayout>
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="StartAndExpand" />
+                            </Grid>
 
-                                <StackLayout Orientation="Horizontal" Spacing="10">
-                                    <CheckBox 
+                            <!-- Fourth Interest -->
+                            <Grid ColumnDefinitions="Auto, *" HorizontalOptions="FillAndExpand">
+                                <CheckBox 
+                                    Grid.Column="0"
                                     IsChecked="{Binding Art}" 
-                                    Color="#346beb" />
-                                    <Label 
+                                    Color="#346beb" 
+                                    VerticalOptions="Center" />
+                                <Label 
+                                    Grid.Column="1"
                                     Text="{x:Static resx:AppResources.Q3Art}"
                                     FontSize="20"
                                     TextColor="Black"
-                                    VerticalOptions="Center" />
-                                </StackLayout>
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="StartAndExpand" />
+                            </Grid>
 
-                                <StackLayout Orientation="Horizontal" Spacing="10">
-                                    <CheckBox 
+                            <!-- Fifth Interest -->
+                            <Grid ColumnDefinitions="Auto, *" HorizontalOptions="FillAndExpand">
+                                <CheckBox 
+                                    Grid.Column="0"
                                     IsChecked="{Binding Music}" 
-                                    Color="#346beb" />
-                                    <Label 
+                                    Color="#346beb" 
+                                    VerticalOptions="Center" />
+                                <Label 
+                                    Grid.Column="1"
                                     Text="{x:Static resx:AppResources.Q3Music}"
                                     FontSize="20"
                                     TextColor="Black"
-                                    VerticalOptions="Center" />
-                                </StackLayout>
-                            </StackLayout>
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="StartAndExpand" />
+                            </Grid>
+                        </StackLayout>
 
-                        </Grid>
+                    </Grid>
 
-                        <!-- Finish Button -->
-                        <Button 
+                    <!-- Finish Button -->
+                    <Button 
                         Text="{x:Static resx:AppResources.QFinish}" 
                         Command="{Binding SaveContextCommand}"
                         FontSize="20"
                         TextColor="Black"
-                        BackgroundColor="#346beb"
+                        BackgroundColor="#C1E0F4"
                         CornerRadius="25"
                         HeightRequest="50"
                         WidthRequest="200"
                         Margin="0,30,0,0"
                         HorizontalOptions="Center" />
 
-                    </StackLayout>
-                </ScrollView>
+                </StackLayout>
+            </ScrollView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

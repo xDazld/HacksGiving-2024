@@ -9,8 +9,14 @@
 
     <ContentPage.Content>
         <Grid>
-            
-            <!-- Content -->
+            <!-- Top Color Bar -->
+            <BoxView 
+                HeightRequest="50"
+                BackgroundColor="#C1E0F4"
+                VerticalOptions="Start"
+                HorizontalOptions="FillAndExpand" />
+
+            <!-- Main Content -->
             <StackLayout 
                 Padding="30"
                 Spacing="20"
@@ -42,8 +48,8 @@
                     Text="{x:Static resx:AppResources.QInitialStartButton}" 
                     Clicked="Button_Clicked"
                     FontSize="20"
-                    TextColor="White"
-                    BackgroundColor="#346beb"
+                    TextColor="Black"
+                    BackgroundColor="#C1E0F4"
                     CornerRadius="25"
                     HeightRequest="50"
                     WidthRequest="200"
