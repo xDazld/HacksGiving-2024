@@ -77,7 +77,8 @@
                     Text="{Binding UserInput}"
                     Placeholder="Type a message" 
                     BackgroundColor="Transparent"
-                    HorizontalOptions="FillAndExpand"/>
+                    HorizontalOptions="FillAndExpand"
+                    ReturnCommand="{Binding SendCommand}"/>
             </Frame>
 
             <!-- Send button -->

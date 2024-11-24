@@ -6,7 +6,7 @@ using Aha.Models;
 
 namespace Aha.ViewModels
 {
-    public class ChatViewModel : INotifyPropertyChanged
+    public class ChatViewModel : AbstractViewModel
     {
         public ObservableCollection<Message> Messages { get; } = new ObservableCollection<Message>();
 
@@ -19,7 +19,7 @@ namespace Aha.ViewModels
                 if (_userInput != value)
                 {
                     _userInput = value;
-                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(UserInput));
                 }
             }
         }
@@ -45,9 +45,5 @@ namespace Aha.ViewModels
                 Messages.Add(new Message { Text = "This is a stubbed chatbot response.", IsUser = false });
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null) =>
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }
