@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Aha.Models;
+using CommunityToolkit.Mvvm.Input;
 
 namespace Aha.ViewModels;
 
@@ -25,13 +26,35 @@ public class ChatViewModel : AbstractViewModel
     }
 
     public ICommand SendCommand { get; }
+    private Message currentResponseFromAI;
 
     public ChatViewModel()
     {
-        SendCommand = new Command(OnSend);
+        WebRelayService.GetWebRelayService().MessageReceived += OnMessageReceived;
+        WebRelayService.GetWebRelayService().MessageEnd += OnMessageEnd;
+
+        SendCommand = new AsyncRelayCommand(OnSend);
     }
 
-    private void OnSend()
+    private void OnMessageEnd(string obj)
+    {
+        currentResponseFromAI = null;
+    }
+
+    private void OnMessageReceived(string obj)
+    {
+        if (currentResponseFromAI == null)
+        {
+            Message message = new Message { Text = obj, IsUser = false };
+            Messages.Add(message);
+            currentResponseFromAI = message;
+        }
+        currentResponseFromAI.Text += obj;
+        OnPropertyChanged(nameof(currentResponseFromAI));
+        OnPropertyChanged(nameof(Messages));
+    }
+
+    private async Task OnSend()
     {
         if (!string.IsNullOrWhiteSpace(UserInput))
         {
@@ -41,8 +64,39 @@ public class ChatViewModel : AbstractViewModel
             // Clear input
             UserInput = string.Empty;
 
-            // Simulate chatbot response (stubbed)
-            Messages.Add(new Message { Text = "This is a stubbed chatbot response.", IsUser = false });
+            /*
+            {
+                "event": "newChat",
+                "prompt": "What's a turtle?",
+                "currentExhibit": "Exhibit 1"
+            }
+            */
+            //Possibly need to await this
+            await WebRelayService.GetWebRelayService().WebRelaySendAsync("\"event\": \"newChat\",\"prompt\": \""+ UserInput +"\",\"currentExhibit\": \"Ball Park Roof\"}");
         }
+    }
+
+
+    /*
+     {
+        "userContext": {
+            "age": 5,
+            "language": "English",
+            "interests": [
+                "automation",
+                "science"
+            ]
+        },
+        "event": "newChat",
+        "currentExhibit": "Exhibit 1"
+    }
+     */
+    public async void SendInitialContextAndMessage()
+    {
+        string context = UserContextManager.getUserContext().getUserContextAsJson().Substring(1);
+        
+        //string message = $",\"event\": \"newChat\",\"currentExhibit\": \"{Location.LocationName}\"";
+        string message = $",\"event\": \"newChat\",\"currentExhibit\": \"Ball Park Roof\"";
+        await WebRelayService.GetWebRelayService().WebRelaySendAsync("{\"userContext\": " + context + message + "}");
     }
 }

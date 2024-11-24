@@ -1,3 +1,5 @@
+using Aha.ViewModels;
+
 namespace Aha.Views;
 
 public partial class BLEDetect : ContentPage
@@ -6,4 +8,10 @@ public partial class BLEDetect : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+        (BindingContext as BLEDectectionViewModel).BleDeviceDetector.StopScanning();
+    }
 }

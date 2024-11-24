@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.WebRequestMethods;
 
 //Used these docs https://learn.microsoft.com/en-us/dotnet/fundamentals/networking/sockets/socket-services?source=recommendations#create-a-socket-server
 
@@ -15,21 +16,24 @@ namespace Aha.Models
     {
         private readonly Socket socket;
         private static WebRelayService _webRelayService = new WebRelayService();
-        public const int portNumber = 8080;
+        public const int portNumber = 443;
         public event Action<string>? MessageReceived;
+        public event Action<string>? MessageEnd;
         private readonly IPEndPoint ipEndPoint;
 
         private WebRelayService()
         {
             //Dns.GetHostName will need to be removed if we want to test this nonlocally & Dns.GetHostEntry
             //will be replaced with whichever host the service is talking to 
-            string hostName = Dns.GetHostName();
+            string hostName = "o-chi.pcr.dog";
             IPHostEntry ipHostInfo = Dns.GetHostEntry(hostName);
 
-            IPAddress ipAddress = ipHostInfo.AddressList[6];
+            IPAddress ipAddress = ipHostInfo.AddressList[0];
 
-            //Port 8080, defined at the top of file
+            //Port, defined at the top of file
             ipEndPoint = new IPEndPoint(ipAddress, portNumber);
+            //Create a socket that is connected to https://o-chi.pcr.dog/HacksGiving-2024 on port 443
+
             socket = new Socket(ipEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
         }
 
@@ -56,7 +60,7 @@ namespace Aha.Models
             }
 
             byte[] messageBytes = Encoding.UTF8.GetBytes(message);
-            await socket.SendAsync(messageBytes, SocketFlags.None);        
+            int bytesSent = await socket.SendAsync(messageBytes, SocketFlags.None);        
             await receiveTokens();
         }
 
@@ -74,6 +78,7 @@ namespace Aha.Models
                 int received = await socket.ReceiveAsync(buffer, SocketFlags.None);
                 response = Encoding.UTF8.GetString(buffer, 0, received);
             }
+            MessageEnd?.Invoke(""); //TODO May be able to remove this if we are awaiting the send method. This is because when it returns we can set currentResponseMessage to null
             return;
         }
 
