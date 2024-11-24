@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModels="clr-namespace:Aha.ViewModels"
     x:Class="Aha.Views.InitialContextQuiz.Q3"
+    xmlns:resx="clr-namespace:Aha.Resources.Localization"
     xmlns:strings="Aha.Resources"
     Title=""
     BackgroundColor="White">
@@ -25,14 +26,14 @@
                     HorizontalOptions="CenterAndExpand">
 
                         <Label 
-                        Text="{x:Static strings:AppResources.Q3SelectInterests1}"
+                        Text="{x:Static resx:AppResources.Q3SelectInterests1}"
                         FontSize="36"
                         FontAttributes="Bold"
                         TextColor="Black"
                         HorizontalOptions="Center" />
 
                         <Label 
-                        Text="{x:Static strings:AppResources.Q3SelectInterests2}"
+                        Text="{x:Static resx:AppResources.Q3SelectInterests2}"
                         FontSize="24"
                         TextColor="Black"
                         HorizontalTextAlignment="Center"
@@ -54,7 +55,7 @@
                                     IsChecked="{Binding Science}" 
                                     Color="#346beb" />
                                     <Label 
-                                    Text="{x:Static strings:AppResources.Q3Science}"
+                                    Text="{x:Static resx:AppResources.Q3Science}"
                                     FontSize="20"
                                     TextColor="Black"
                                     VerticalOptions="Center" />
@@ -65,7 +66,7 @@
                                     IsChecked="{Binding Geography}" 
                                     Color="#346beb" />
                                     <Label 
-                                    Text="{x:Static strings:AppResources.Q3Geography}"
+                                    Text="{x:Static resx:AppResources.Q3Geography}"
                                     FontSize="20"
                                     TextColor="Black"
                                     VerticalOptions="Center" />
@@ -76,7 +77,7 @@
                                     IsChecked="{Binding History}" 
                                     Color="#346beb" />
                                     <Label 
-                                    Text="{x:Static strings:AppResources.Q3History}"
+                                    Text="{x:Static resx:AppResources.Q3History}"
                                     FontSize="20"
                                     TextColor="Black"
                                     VerticalOptions="Center" />
@@ -87,7 +88,7 @@
                                     IsChecked="{Binding Oceans}" 
                                     Color="#346beb" />
                                     <Label 
-                                    Text="{x:Static strings:AppResources.Q3Oceans}"
+                                    Text="{x:Static resx:AppResources.Q3Oceans}"
                                     FontSize="20"
                                     TextColor="Black"
                                     VerticalOptions="Center" />
@@ -101,7 +102,7 @@
                                     IsChecked="{Binding Automation}" 
                                     Color="#346beb" />
                                     <Label 
-                                    Text="{x:Static strings:AppResources.Q3Automation}"
+                                    Text="{x:Static resx:AppResources.Q3Automation}"
                                     FontSize="20"
                                     TextColor="Black"
                                     VerticalOptions="Center" />
@@ -112,7 +113,7 @@
                                     IsChecked="{Binding Technology}" 
                                     Color="#346beb" />
                                     <Label 
-                                    Text="{x:Static strings:AppResources.Q3Technology}"
+                                    Text="{x:Static resx:AppResources.Q3Technology}"
                                     FontSize="20"
                                     TextColor="Black"
                                     VerticalOptions="Center" />
@@ -123,7 +124,7 @@
                                     IsChecked="{Binding Engineering}" 
                                     Color="#346beb" />
                                     <Label 
-                                    Text="{x:Static strings:AppResources.Q3Engineering}"
+                                    Text="{x:Static resx:AppResources.Q3Engineering}"
                                     FontSize="20"
                                     TextColor="Black"
                                     VerticalOptions="Center" />
@@ -134,7 +135,7 @@
                                     IsChecked="{Binding Art}" 
                                     Color="#346beb" />
                                     <Label 
-                                    Text="{x:Static strings:AppResources.Q3Art}"
+                                    Text="{x:Static resx:AppResources.Q3Art}"
                                     FontSize="20"
                                     TextColor="Black"
                                     VerticalOptions="Center" />
@@ -145,7 +146,7 @@
                                     IsChecked="{Binding Music}" 
                                     Color="#346beb" />
                                     <Label 
-                                    Text="{x:Static strings:AppResources.Q3Music}"
+                                    Text="{x:Static resx:AppResources.Q3Music}"
                                     FontSize="20"
                                     TextColor="Black"
                                     VerticalOptions="Center" />
@@ -156,7 +157,7 @@
 
                         <!-- Finish Button -->
                         <Button 
-                        Text="{x:Static strings:AppResources.QFinish}" 
+                        Text="{x:Static resx:AppResources.QFinish}" 
                         Command="{Binding SaveContextCommand}"
                         FontSize="20"
                         TextColor="Black"

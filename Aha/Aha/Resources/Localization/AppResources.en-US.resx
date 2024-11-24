@@ -139,7 +139,7 @@
     <value>Enter your age</value>
   </data>
   <data name="Q1ChooseLanguagePicker" xml:space="preserve">
-    <value>Choose Language</value>
+    <value>Choose Langauge</value>
   </data>
   <data name="Q3SelectInterests1" xml:space="preserve">
     <value>Select Interests</value>
@@ -176,5 +176,11 @@
   </data>
   <data name="QFinish" xml:space="preserve">
     <value>Finish</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="Type a Message" xml:space="preserve">
+    <value>Type a Message</value>
   </data>
 </root>

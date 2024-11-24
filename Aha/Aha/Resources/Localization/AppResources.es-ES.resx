@@ -118,63 +118,69 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="QInitalGreeting1" xml:space="preserve">
-    <value>Greetings!</value>
+    <value>Bienvenido a la aplicación!</value>
   </data>
   <data name="QInitialGreeting2" xml:space="preserve">
-    <value>Welcome to Discovery World's immersive experience with A.I.!</value>
+    <value>Esta aplicación te ayudará a aprender cosas nuevas.</value>
   </data>
   <data name="QInitialGreeting3" xml:space="preserve">
-    <value>Let's Get Started!</value>
+    <value>Empecemos!  </value>
   </data>
   <data name="QInitialStartButton" xml:space="preserve">
-    <value>Start Survey</value>
+    <value>Comenzar</value>
   </data>
   <data name="QNextButton" xml:space="preserve">
-    <value>Next</value>
+    <value>Selecciona tu idioma</value>
   </data>
   <data name="Q2EnterYourAge1" xml:space="preserve">
-    <value>Please Enter Your Age</value>
+    <value>Siguiente</value>
   </data>
   <data name="Q2EnterYourAge2" xml:space="preserve">
-    <value>Enter your age</value>
+    <value>Ingresa tu edad</value>
   </data>
   <data name="Q1ChooseLanguagePicker" xml:space="preserve">
-    <value>Choose Langauge</value>
+    <value>Elige idioma</value>
   </data>
   <data name="Q3SelectInterests1" xml:space="preserve">
-    <value>Select Interests</value>
+    <value>Seleccionar intereses</value>
   </data>
   <data name="Q3SelectInterests2" xml:space="preserve">
-    <value>Check the box next to subjects that interest you.</value>
+    <value>Marque la casilla junto a los temas que le interesen.</value>
   </data>
   <data name="Q3Science" xml:space="preserve">
-    <value>Science</value>
+    <value>Ciencia</value>
   </data>
   <data name="Q3Geography" xml:space="preserve">
-    <value>Geography</value>
+    <value>Geografía</value>
   </data>
   <data name="Q3History" xml:space="preserve">
-    <value>History</value>
+    <value>Historia</value>
   </data>
   <data name="Q3Oceans" xml:space="preserve">
-    <value>Oceans</value>
+    <value>Océanos</value>
   </data>
   <data name="Q3Automation" xml:space="preserve">
-    <value>Automation</value>
+    <value>Automatización</value>
   </data>
   <data name="Q3Technology" xml:space="preserve">
-    <value>Technology</value>
+    <value>Tecnología</value>
   </data>
   <data name="Q3Engineering" xml:space="preserve">
-    <value>Engineering</value>
+    <value>Ingeniería</value>
   </data>
   <data name="Q3Art" xml:space="preserve">
-    <value>Art</value>
+    <value>Arte</value>
   </data>
   <data name="Q3Music" xml:space="preserve">
-    <value>Music</value>
+    <value>Música</value>
   </data>
   <data name="QFinish" xml:space="preserve">
-    <value>Finish</value>
+    <value>Finalizar</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="Type a Message" xml:space="preserve">
+    <value>Escribe un mensaje</value>
   </data>
 </root>

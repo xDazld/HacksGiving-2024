@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewmodels="clr-namespace:Aha.ViewModels"
+    xmlns:resx="clr-namespace:Aha.Resources.Localization"
     x:Class="Aha.Views.Chat"
     Title="Chat">
 
@@ -75,7 +76,8 @@
                 HorizontalOptions="FillAndExpand">
                 <Entry 
                     Text="{Binding UserInput}"
-                    Placeholder="Type a message" 
+                    Placeholder="{x:Static resx:AppResources.Type_a_Message}"
+                    PlaceholderColor="Black"
                     BackgroundColor="Transparent"
                     HorizontalOptions="FillAndExpand"
                     ReturnCommand="{Binding SendCommand}"/>
@@ -83,7 +85,7 @@
 
             <!-- Send button -->
             <Button 
-                Text="Send" 
+                Text="{x:Static resx:AppResources.Send}" 
                 Command="{Binding SendCommand}"
                 Grid.Column="1" 
                 HorizontalOptions="End"

@@ -3,7 +3,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Aha.Views.InitialContextQuiz.QInitial"
-    xmlns:strings="Aha.Resources"
+    xmlns:resx="clr-namespace:Aha.Resources.Localization"
     Title=""
     BackgroundColor="White">
 
@@ -18,28 +18,28 @@
                 HorizontalOptions="Center">
 
                 <Label 
-                    Text="{x:Static strings:AppResources.QInitialGreeting1}"
+                    Text="{x:Static resx:AppResources.QInitalGreeting1}"
                     FontSize="36"
                     FontAttributes="Bold"
                     TextColor="Black"
                     HorizontalOptions="Center" />
 
                 <Label 
-                    Text="{x:Static strings:AppResources.QInitialGreeting2}"
+                    Text="{x:Static resx:AppResources.QInitialGreeting2}"
                     FontSize="24"
                     TextColor="Black"
                     HorizontalTextAlignment="Center"
                     HorizontalOptions="Center" />
 
                 <Label 
-                    Text="{x:Static strings:AppResources.QInitialGreeting3}"
+                    Text="{x:Static resx:AppResources.QInitialGreeting3}"
                     FontSize="24"
                     TextColor="Black"
                     HorizontalTextAlignment="Center"
                     HorizontalOptions="Center" />
 
                 <Button 
-                    Text="{x:Static strings:AppResources.QInitialStartButton}" 
+                    Text="{x:Static resx:AppResources.QInitialStartButton}" 
                     Clicked="Button_Clicked"
                     FontSize="20"
                     TextColor="White"

@@ -69,20 +69,37 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<EmbeddedResource Update="Resources\Localization\AppResources.resx">
+		  <Generator>ResXFileCodeGenerator</Generator>
+		  <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\AppResources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+			<StronglyTypedFileName>Resources\AppResources.Designer.cs</StronglyTypedFileName>
+			<StronglyTypedLanguage>CSharp</StronglyTypedLanguage>
+			<StronglyTypedNamespace>MyAppPackage.Resources</StronglyTypedNamespace>
+			<StronglyTypedClassName>AppResources</StronglyTypedClassName>
+		</EmbeddedResource>
+	</ItemGroup>
+	
+	<ItemGroup>
 	  <Resource Include="LocationContexts.csv" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Resources\Localization\AppResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>AppResources.resx</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\Website.xaml.cs">
 	    <DependentUpon>Website.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Update="Resources\AppResources.en-US.resx">
-	    <CustomToolNamespace>Resources</CustomToolNamespace>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="Resources\AppResources.resx">
+	  <EmbeddedResource Update="Resources\Localization\AppResources.en-US.resx">
 	    <CustomToolNamespace>Resources</CustomToolNamespace>
 	  </EmbeddedResource>
 	</ItemGroup>

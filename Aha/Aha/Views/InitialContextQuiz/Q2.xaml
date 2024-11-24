@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModels="clr-namespace:Aha.ViewModels"
     x:Class="Aha.Views.InitialContextQuiz.Q2"
+    xmlns:resx="clr-namespace:Aha.Resources.Localization"
     xmlns:strings="Aha.Resources"
     Title=""
     BackgroundColor="White">
@@ -23,7 +24,7 @@
                 HorizontalOptions="CenterAndExpand">
 
                     <Label 
-                    Text="{x:Static strings:AppResources.Q2EnterYourAge1}"
+                    Text="{x:Static resx:AppResources.Q2EnterYourAge1}"
                     FontSize="36"
                     FontAttributes="Bold"
                     TextColor="White"
@@ -43,7 +44,7 @@
 
                         <Entry 
                         Text="{Binding Age, Mode=OneWayToSource}"
-                        Placeholder="{x:Static strings:AppResources.Q2EnterYourAge2}"
+                        Placeholder="{x:Static resx:AppResources.Q2EnterYourAge2}"
                         FontSize="20"
                         TextColor="White"
                         PlaceholderColor="LightGray"
@@ -56,7 +57,7 @@
 
                     <!-- Next Button -->
                     <Button 
-                    Text="{x:Static strings:AppResources.QNextButton}" 
+                    Text="{x:Static resx:AppResources.QNextButton}" 
                     Clicked="Button_Clicked"
                     FontSize="20"
                     TextColor="White"
