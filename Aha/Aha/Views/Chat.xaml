@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:Aha.ViewModels"
+    x:Class="Aha.Views.Chat"
+    Title="Chat">
+
+    <!-- Set the BindingContext to the ChatViewModel -->
+    <ContentPage.BindingContext>
+        <viewmodels:ChatViewModel />
+    </ContentPage.BindingContext>
+
+    <AbsoluteLayout>
+
+        <!-- CollectionView to display chat messages -->
+        <CollectionView
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0,0,1,0.9"
+            ItemsSource="{Binding Messages}"
+            ItemsUpdatingScrollMode="KeepLastItemInView"
+            SelectionMode="None">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame
+                        CornerRadius="12"
+                        Padding="10"
+                        Margin="5"
+                        HasShadow="False"
+                        BackgroundColor="LightGray"
+                        HorizontalOptions="Start">
+
+                        <Frame.Triggers>
+                            <DataTrigger TargetType="Frame" Binding="{Binding IsUser}" Value="True">
+                                <Setter Property="BackgroundColor" Value="#007AFF" />
+                                <Setter Property="HorizontalOptions" Value="End" />
+                            </DataTrigger>
+                        </Frame.Triggers>
+
+                        <Label
+                            Text="{Binding Text}"
+                            TextColor="Black"
+                            LineBreakMode="WordWrap">
+
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding IsUser}" Value="True">
+                                    <Setter Property="TextColor" Value="White" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Input area pinned to the bottom -->
+        <Grid 
+            Padding="10" 
+            AbsoluteLayout.LayoutFlags="WidthProportional,PositionProportional" 
+            AbsoluteLayout.LayoutBounds="0,1,1,AutoSize">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Entry for user input -->
+            <Frame 
+                Grid.Column="0" 
+                CornerRadius="12" 
+                BackgroundColor="LightGray" 
+                Padding="0" 
+                HasShadow="False" 
+                HorizontalOptions="FillAndExpand">
+                <Entry 
+                    Text="{Binding UserInput}"
+                    Placeholder="Type a message" 
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="FillAndExpand"
+                    ReturnCommand="{Binding SendCommand}"/>
+            </Frame>
+
+            <!-- Send button -->
+            <Button 
+                Text="Send" 
+                Command="{Binding SendCommand}"
+                Grid.Column="1" 
+                HorizontalOptions="End"
+                Margin="5,0,0,0"/>
+        </Grid>
+    </AbsoluteLayout>
+</ContentPage>
