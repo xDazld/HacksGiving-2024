@@ -66,3 +66,7 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int):
 @app.get("/exhibits/topics")
 async def get_exhibit_topics():
     return embeds.get_topics()
+
+@app.get("/")
+async def root():
+    return "AhaAPI is running"
