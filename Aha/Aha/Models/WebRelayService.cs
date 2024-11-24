@@ -65,7 +65,7 @@ namespace Aha.Models
             String response = "";
             byte[] buffer = new byte[1024];
 
-            while (!response.Contains("eof"))
+            while (!StringToHex(response).Contains("04"))
             {
                 if(response.Length > 0)
                 {
@@ -75,6 +75,12 @@ namespace Aha.Models
                 response = Encoding.UTF8.GetString(buffer, 0, received);
             }
             return;
+        }
+
+        private string StringToHex(string input)
+        {
+            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(input);
+            return BitConverter.ToString(bytes).Replace("-", "");
         }
     }
 }
