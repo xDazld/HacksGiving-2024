@@ -51,7 +51,8 @@ namespace Aha.Models
         {
             if (device.Name.Contains("LocationContext"))
             {
-                if (!_devices.ContainsKey(device.Id.ToString())){
+                if (!_devices.ContainsKey(device.Id.ToString()))
+                {
                     _devices.Add(device.Id.ToString(), device);
                     LocationContextDeviceDetected?.Invoke(this, device);
                 }

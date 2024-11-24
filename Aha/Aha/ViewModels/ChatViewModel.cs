@@ -72,7 +72,7 @@ public class ChatViewModel : AbstractViewModel
             //Possibly need to await this
             BackgroundTaskRunning = true;
             OnPropertyChanged(nameof(BackgroundTaskRunning));
-            await WebRelayService.GetWebRelayService().WebRelaySendAsync("{\"event\": \"chatMessage\",\"prompt\": \""+ UserInput +"\",\"currentExhibit\": \""+"All-Aboard"+"\"}");
+            await WebRelayService.GetWebRelayService().WebRelaySendAsync("{\"event\": \"chatMessage\",\"prompt\": \"" + UserInput + "\",\"currentExhibit\": \"" + "All-Aboard" + "\"}");
             BackgroundTaskRunning = false;
             OnPropertyChanged(nameof(BackgroundTaskRunning));
         }
@@ -84,7 +84,7 @@ public class ChatViewModel : AbstractViewModel
         BackgroundTaskRunning = true;
         OnPropertyChanged(nameof(BackgroundTaskRunning));
         //string message = $",\"event\": \"newChat\",\"currentExhibit\": \"{Location.LocationName}\"";
-        string message = $",\"event\": \"newChat\",\"currentExhibit\": \""+"All-Aboard"+"\"";
+        string message = $",\"event\": \"newChat\",\"currentExhibit\": \"" + "All-Aboard" + "\"";
         var completeMessage = "{\"userContext\": {" + context + message + "}";
         await WebRelayService.GetWebRelayService().WebRelaySendAsync(completeMessage);
         BackgroundTaskRunning = false;

@@ -24,7 +24,7 @@ namespace Aha.Models
         private UserContextManager()
         {
             FilePath = Path.Combine(FileSystem.AppDataDirectory, "userContext.json");
-            if(File.Exists(FilePath))
+            if (File.Exists(FilePath))
             {
                 var json = File.ReadAllText(FilePath);
                 this.User = JsonSerializer.Deserialize<UserContext>(json);
