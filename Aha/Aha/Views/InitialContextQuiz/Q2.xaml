@@ -1,25 +1,71 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModels="clr-namespace:Aha.ViewModels"
-             x:Class="Aha.Views.InitialContextQuiz.Q2"
-             Title="Age Entry">
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:Aha.ViewModels"
+    x:Class="Aha.Views.InitialContextQuiz.Q2"
+    Title="">
+
+    <!-- Set the BindingContext to the ContextQuizViewModel -->
     <ContentPage.BindingContext>
-        <viewModels:ContextQuizViewModel/>
+        <viewModels:ContextQuizViewModel />
     </ContentPage.BindingContext>
-    <StackLayout Orientation="Vertical">
-        <Label 
-        Text="Please enter your age"
-        VerticalOptions="Center" 
-        HorizontalOptions="Center" />
-        <StackLayout Orientation="Horizontal"
-                 HorizontalOptions="Center">
-            <Label Text="Age:"/>
-            <Entry Text="{Binding Age, Mode=OneWayToSource}"/>
-        </StackLayout>
-        <Button Text="Next" 
-            Clicked="Button_Clicked"
-            VerticalOptions="Center"
-            HorizontalOptions="Center"/>
-    </StackLayout>
+
+    <ContentPage.Content>
+        <Grid>
+            <!-- Content -->
+                <StackLayout 
+                Padding="30"
+                Spacing="20"
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand">
+
+                    <Label 
+                    Text="Please Enter Your Age"
+                    FontSize="36"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    HorizontalOptions="Center" />
+
+                    <!-- Age Entry -->
+                    <StackLayout 
+                    Orientation="Vertical"
+                    Spacing="10"
+                    HorizontalOptions="FillAndExpand">
+
+                        <Label 
+                        Text="Age:"
+                        FontSize="24"
+                        TextColor="White"
+                        HorizontalTextAlignment="Center" />
+
+                        <Entry 
+                        Text="{Binding Age, Mode=OneWayToSource}"
+                        Placeholder="Enter your age"
+                        FontSize="20"
+                        TextColor="White"
+                        PlaceholderColor="LightGray"
+                        BackgroundColor="#346beb"
+                        Keyboard="Numeric"
+                        Margin="0,10,0,0"
+                        HorizontalOptions="FillAndExpand" />
+
+                    </StackLayout>
+
+                    <!-- Next Button -->
+                    <Button 
+                    Text="Next →" 
+                    Clicked="Button_Clicked"
+                    FontSize="20"
+                    TextColor="White"
+                    BackgroundColor="#346beb"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    WidthRequest="200"
+                    Margin="0,20,0,0"
+                    HorizontalOptions="Center" />
+
+                </StackLayout>
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>

@@ -1,82 +1,172 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModels="clr-namespace:Aha.ViewModels"
-             x:Class="Aha.Views.InitialContextQuiz.Q3"
-             Title="Select Interests">
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:Aha.ViewModels"
+    x:Class="Aha.Views.InitialContextQuiz.Q3"
+    Title="">
+
+    <!-- Set the BindingContext to the ContextQuizViewModel -->
     <ContentPage.BindingContext>
-        <viewModels:ContextQuizViewModel/>
+        <viewModels:ContextQuizViewModel />
     </ContentPage.BindingContext>
-    <ContentPage.Resources>
-        <Style TargetType="Label">
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="VerticalOptions" Value="Center"/>
-            <Setter Property="HorizontalOptions" Value="Start"/>
-            <Setter Property="VerticalTextAlignment" Value="Center"/>
-            <Setter Property="HorizontalTextAlignment" Value="Start"/>
-            <Setter Property="Margin" Value="10,0"/>
-        </Style>
-        <Style TargetType="CheckBox">
-            <Setter Property="VerticalOptions" Value="Center"/>
-            <Setter Property="HorizontalOptions" Value="Start"/>
-        </Style>
-        <Style TargetType="Button">
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="BackgroundColor" Value="#007AFF"/>
-            <Setter Property="TextColor" Value="White"/>
-            <Setter Property="Padding" Value="10"/>
-            <Setter Property="CornerRadius" Value="5"/>
-            <Setter Property="HorizontalOptions" Value="Center"/>
-            <Setter Property="Margin" Value="20"/>
-        </Style>
-    </ContentPage.Resources>
-    <StackLayout Orientation="Vertical" Padding="20" Spacing="10">
-        <Label 
-            Text="Check the box next to subjects that interest you."
-            HorizontalOptions="Center" 
-            FontAttributes="Bold"
-            FontSize="20"
-            Margin="0,20,0,10"/>
-        <Grid ColumnDefinitions="Auto, Auto" RowSpacing="10" HorizontalOptions="Center">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
 
-            <Label Text="Science" Grid.Row="0" Grid.Column="0"/>
-            <CheckBox IsChecked="{Binding Science, Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+    <ContentPage.Content>
+        <Grid>
 
-            <Label Text="Geography" Grid.Row="1" Grid.Column="0"/>
-            <CheckBox IsChecked="{Binding Geography, Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
+            <!-- Content -->
+                <ScrollView>
+                    <StackLayout 
+                    Padding="30"
+                    Spacing="20"
+                    VerticalOptions="Center"
+                    HorizontalOptions="CenterAndExpand">
 
-            <Label Text="History" Grid.Row="2" Grid.Column="0"/>
-            <CheckBox IsChecked="{Binding History, Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
+                        <Label 
+                        Text="Select Interests"
+                        FontSize="36"
+                        FontAttributes="Bold"
+                        TextColor="Black"
+                        HorizontalOptions="Center" />
 
-            <Label Text="Oceans" Grid.Row="3" Grid.Column="0"/>
-            <CheckBox IsChecked="{Binding Oceans, Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
+                        <Label 
+                        Text="Check the box next to subjects that interest you."
+                        FontSize="24"
+                        TextColor="Black"
+                        HorizontalTextAlignment="Center"
+                        HorizontalOptions="Center"
+                        Margin="0,0,0,20" />
 
-            <Label Text="Automation" Grid.Row="4" Grid.Column="0"/>
-            <CheckBox IsChecked="{Binding Automation, Mode=TwoWay}" Grid.Row="4" Grid.Column="1"/>
+                        <!-- Interests Selection -->
+                        <Grid 
+                        ColumnDefinitions="*, *" 
+                        RowDefinitions="Auto" 
+                        ColumnSpacing="10" 
+                        RowSpacing="10"
+                        HorizontalOptions="CenterAndExpand">
 
-            <Label Text="Technology" Grid.Row="5" Grid.Column="0"/>
-            <CheckBox IsChecked="{Binding Technology, Mode=TwoWay}" Grid.Row="5" Grid.Column="1"/>
+                            <!-- First Column -->
+                            <StackLayout Grid.Column="0" Spacing="15">
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <CheckBox 
+                                    IsChecked="{Binding Science}" 
+                                    Color="#346beb" />
+                                    <Label 
+                                    Text="Science"
+                                    FontSize="20"
+                                    TextColor="Black"
+                                    VerticalOptions="Center" />
+                                </StackLayout>
 
-            <Label Text="Engineering" Grid.Row="6" Grid.Column="0"/>
-            <CheckBox IsChecked="{Binding Engineering, Mode=TwoWay}" Grid.Row="6" Grid.Column="1"/>
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <CheckBox 
+                                    IsChecked="{Binding Geography}" 
+                                    Color="#346beb" />
+                                    <Label 
+                                    Text="Geography"
+                                    FontSize="20"
+                                    TextColor="Black"
+                                    VerticalOptions="Center" />
+                                </StackLayout>
 
-            <Label Text="Art" Grid.Row="7" Grid.Column="0"/>
-            <CheckBox IsChecked="{Binding Art, Mode=TwoWay}" Grid.Row="7" Grid.Column="1"/>
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <CheckBox 
+                                    IsChecked="{Binding History}" 
+                                    Color="#346beb" />
+                                    <Label 
+                                    Text="History"
+                                    FontSize="20"
+                                    TextColor="Black"
+                                    VerticalOptions="Center" />
+                                </StackLayout>
 
-            <Label Text="Music" Grid.Row="8" Grid.Column="0"/>
-            <CheckBox IsChecked="{Binding Music, Mode=TwoWay}" Grid.Row="8" Grid.Column="1"/>
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <CheckBox 
+                                    IsChecked="{Binding Oceans}" 
+                                    Color="#346beb" />
+                                    <Label 
+                                    Text="Oceans"
+                                    FontSize="20"
+                                    TextColor="Black"
+                                    VerticalOptions="Center" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <!-- Second Column -->
+                            <StackLayout Grid.Column="1" Spacing="15">
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <CheckBox 
+                                    IsChecked="{Binding Automation}" 
+                                    Color="#346beb" />
+                                    <Label 
+                                    Text="Automation"
+                                    FontSize="20"
+                                    TextColor="Black"
+                                    VerticalOptions="Center" />
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <CheckBox 
+                                    IsChecked="{Binding Technology}" 
+                                    Color="#346beb" />
+                                    <Label 
+                                    Text="Technology"
+                                    FontSize="20"
+                                    TextColor="Black"
+                                    VerticalOptions="Center" />
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <CheckBox 
+                                    IsChecked="{Binding Engineering}" 
+                                    Color="#346beb" />
+                                    <Label 
+                                    Text="Engineering"
+                                    FontSize="20"
+                                    TextColor="Black"
+                                    VerticalOptions="Center" />
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <CheckBox 
+                                    IsChecked="{Binding Art}" 
+                                    Color="#346beb" />
+                                    <Label 
+                                    Text="Art"
+                                    FontSize="20"
+                                    TextColor="Black"
+                                    VerticalOptions="Center" />
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <CheckBox 
+                                    IsChecked="{Binding Music}" 
+                                    Color="#346beb" />
+                                    <Label 
+                                    Text="Music"
+                                    FontSize="20"
+                                    TextColor="Black"
+                                    VerticalOptions="Center" />
+                                </StackLayout>
+                            </StackLayout>
+
+                        </Grid>
+
+                        <!-- Finish Button -->
+                        <Button 
+                        Text="Finish" 
+                        Command="{Binding SaveContextCommand}"
+                        FontSize="20"
+                        TextColor="Black"
+                        BackgroundColor="#346beb"
+                        CornerRadius="25"
+                        HeightRequest="50"
+                        WidthRequest="200"
+                        Margin="0,30,0,0"
+                        HorizontalOptions="Center" />
+
+                    </StackLayout>
+                </ScrollView>
         </Grid>
-        <Button Text="Finish" Command="{Binding SaveContextCommand}"/>
-    </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
