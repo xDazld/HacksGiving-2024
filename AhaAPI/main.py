@@ -38,34 +38,39 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int) -> None:
                     message_dict = {
                         "message": message,
                     }
-                    await manager.emit(message_dict, websocket)
+                    await manager.emit_text(message_dict, websocket)
                     print(message, end="")
                 await manager.emit(
                     {
-                        "message": "\x04",
+                        "message": "END CHAT",
                     },
                     websocket,
                 )
+                print()
             elif event == "chatMessage":
                 print(f"{client_id} sent chat message")
                 prompt = user.chat_message(data)
+                print(prompt)
                 gen = prompt_model(user, prompt)
                 for message in gen:
                     message_dict = {
                         "message": message,
                     }
-                    await manager.emit(message_dict, websocket)
+                    await manager.emit_text(message_dict, websocket)
                     print(message, end="")
                 await manager.emit(
                     {
-                        "message": "\x04",
+                        "message": "END CHAT",
                     },
                     websocket,
                 )
+                print()
 
     except WebSocketDisconnect:
         manager.disconnect(websocket)
         print(f"Client {client_id} disconnected")
+    finally:
+        user.save()
 
 
 @app.get("/exhibits/topics")

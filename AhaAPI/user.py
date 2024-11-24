@@ -29,6 +29,7 @@ class User:
                 "interests": [],
                 "history": [],
             }
+        self.save()
 
     def save(self) -> None:
         """

@@ -13,7 +13,7 @@ def prompt_model(user: User, prompt: str):
     :param prompt: the prompt given by the user
     :return: Generator of tokens for response
     """
-    model = GPT4All("Llama-3.2-1B-Instruct-Q4_0.gguf")
+    model = GPT4All("Llama-3.2-1B-Instruct-Q4_0.gguf", n_ctx=4096)
     with model.chat_session(
         system_prompt="You are an AI-driven assistant that enhances visitor "
         "interactions with exhibits. Allow users to scale "
@@ -22,8 +22,8 @@ def prompt_model(user: User, prompt: str):
         "connections between different content. Find additional "
         "fun-facts/information based on topics the user "
         "expresses interest in.\nWith each prompt, you will be "
-        "given information about the exhibit a user is at along "
-        "with their prompt. You should inspire 'Aha!' moments. "
+        "given metadata about the exhibit a user is at along "
+        "with a prompt from the user. You should inspire 'Aha!' moments. "
         "Respond with empathy. The user is "
         + str(user.get_age())
         + " years old and speaks "
