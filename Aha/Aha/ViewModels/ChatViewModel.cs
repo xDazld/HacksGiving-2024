@@ -9,6 +9,7 @@ namespace Aha.ViewModels;
 
 public class ChatViewModel : AbstractViewModel
 {
+    private LocationContext closestLocation;
     public ObservableCollection<Message> Messages { get; } = new ObservableCollection<Message>();
 
     private string _userInput;
@@ -30,6 +31,7 @@ public class ChatViewModel : AbstractViewModel
 
     public ChatViewModel()
     {
+        closestLocation = LocationContextManager.getLocationContextManager().CurrentNearestLocationContext;
         WebRelayService.GetWebRelayService().MessageReceived += OnMessageReceived;
         WebRelayService.GetWebRelayService().MessageEnd += OnMessageEnd;
 
@@ -72,7 +74,7 @@ public class ChatViewModel : AbstractViewModel
             }
             */
             //Possibly need to await this
-            await WebRelayService.GetWebRelayService().WebRelaySendAsync("\"event\": \"newChat\",\"prompt\": \""+ UserInput +"\",\"currentExhibit\": \"Ball Park Roof\"}");
+            await WebRelayService.GetWebRelayService().WebRelaySendAsync("\"event\": \"newChat\",\"prompt\": \""+ UserInput +"\",\"currentExhibit\": \""+closestLocation.LocationName+"\"}");
         }
     }
 
@@ -96,7 +98,7 @@ public class ChatViewModel : AbstractViewModel
         string context = UserContextManager.getUserContext().getUserContextAsJson().Substring(1);
         
         //string message = $",\"event\": \"newChat\",\"currentExhibit\": \"{Location.LocationName}\"";
-        string message = $",\"event\": \"newChat\",\"currentExhibit\": \"Ball Park Roof\"";
+        string message = $",\"event\": \"newChat\",\"currentExhibit\": \""+closestLocation.LocationName+"\"";
         await WebRelayService.GetWebRelayService().WebRelaySendAsync("{\"userContext\": " + context + message + "}");
     }
 }

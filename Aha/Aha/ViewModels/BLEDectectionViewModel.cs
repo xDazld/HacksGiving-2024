@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Aha.Models;
 using Aha.Views;
+using CommunityToolkit.Mvvm.Input;
+using Plugin.BLE;
 using Plugin.BLE.Abstractions.Contracts;
 
 namespace Aha.ViewModels
@@ -14,12 +17,42 @@ namespace Aha.ViewModels
     {
         public BLEDeviceDetector BleDeviceDetector;
         private Boolean isScanning = false;
+        public ObservableCollection<IDevice> Devices { get; set; } = new ObservableCollection<IDevice>();
+        public AsyncRelayCommand StartChatCommand { get; set; }
 
         public BLEDectectionViewModel()
         {
             BleDeviceDetector = new BLEDeviceDetector();
             BleDeviceDetector.LocationContextDeviceDetected += OnLocationContextDeviceDetected;
             StartBLEScanning();
+            StartChatCommand = new AsyncRelayCommand(StartChat);
+        }
+
+        private async Task StartChat()
+        {
+            //Need to determine the closest device and use that as location context
+            IDevice currentClosest = Devices.FirstOrDefault();
+            Debug.WriteLine($"Starting chat with device: {currentClosest.Name}");
+            foreach (IDevice device in Devices)
+            {
+#if ANDROID || IOS
+                await device.UpdateRssiAsync();
+#endif
+            }
+
+            foreach (IDevice device in Devices)
+            {
+                if (device.Rssi > currentClosest.Rssi)
+                {
+                    currentClosest = device;
+                }
+            }
+            string locationName = "";
+            LocationContextManager.getLocationContextManager().BLEDeviceNameToLocationContext.TryGetValue(currentClosest.Name, out locationName);
+
+            Debug.WriteLine($"Nearest Location Context: {locationName}");
+            LocationContextManager.getLocationContextManager().CurrentNearestLocationContext = new LocationContext(locationName);
+            Shell.Current.Navigation.PushAsync(new Chat());
         }
 
         private async void StartBLEScanning()
@@ -30,16 +63,12 @@ namespace Aha.ViewModels
 
         private async void OnLocationContextDeviceDetected(object sender, IDevice device)
         {
-            if (isScanning)
-            {
-                isScanning = false;
-                BleDeviceDetector.StopScanning();
-                Debug.WriteLine($"Device detected: {device.Name}");
-                // Do something with the device
-                //Invoke on the main thread
-                    
-                await Shell.Current.GoToAsync("//Chat");
-            }
+            BleDeviceDetector.StopScanning();
+            Debug.WriteLine($"Device detected: {device.Name}");
+            // Do something with the device
+            //Invoke on the main thread
+            Devices.Add(device);
+            OnPropertyChanged(nameof(Devices));
         }
     }
 }

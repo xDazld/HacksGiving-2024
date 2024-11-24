@@ -10,8 +10,8 @@ namespace Aha.Models
     {
         public Dictionary<string, string> BLEDeviceNameToLocationContext = new Dictionary<string, string>();
         //List<LocationContext> LocationHistory = new List<LocationContext>(); //For the future if it becomes necessary
-
-        public static LocationContextManager LocationContextManagerInstance { get; } = new LocationContextManager();
+        public LocationContext CurrentNearestLocationContext { get; set; }
+        private static LocationContextManager LocationContextManagerInstance { get; } = new LocationContextManager();
         private LocationContextManager()
         {
             //Read CSV For location Contexts
@@ -23,6 +23,11 @@ namespace Aha.Models
                     BLEDeviceNameToLocationContext.Add(line[0], line[1]);
                 }
             }
+        }
+
+        public static LocationContextManager getLocationContextManager()
+        {
+            return LocationContextManagerInstance;
         }
     }
 }

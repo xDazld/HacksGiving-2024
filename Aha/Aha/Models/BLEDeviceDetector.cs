@@ -14,6 +14,7 @@ namespace Aha.Models
         private readonly IBluetoothLE _bluetoothManager;
         private readonly IAdapter _adapter;
         private CancellationTokenSource _scanCancellationTokenSource;
+        private Dictionary<string, IDevice> _devices = new Dictionary<string, IDevice>();
 
         public event EventHandler<IDevice> LocationContextDeviceDetected;
 
@@ -50,7 +51,10 @@ namespace Aha.Models
         {
             if (device.Name.Contains("LocationContext"))
             {
-                LocationContextDeviceDetected?.Invoke(this, device);
+                if (!_devices.ContainsKey(device.Id.ToString())){
+                    _devices.Add(device.Id.ToString(), device);
+                    LocationContextDeviceDetected?.Invoke(this, device);
+                }
             }
         }
 
