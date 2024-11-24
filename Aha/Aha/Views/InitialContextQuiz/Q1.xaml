@@ -3,8 +3,10 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModels="clr-namespace:Aha.ViewModels"
+    xmlns:strings="Aha.Resources"
     x:Class="Aha.Views.InitialContextQuiz.Q1"
-    Title="">
+    Title=""
+    BackgroundColor="White">
 
     <!-- Set the BindingContext to the ContextQuizViewModel -->
     <ContentPage.BindingContext>
@@ -26,24 +28,30 @@
                     FontAttributes="Bold"
                     TextColor="Black"
                     HorizontalOptions="Center" />
+                    <Label 
+                    Text="Selecciona tu idioma"
+                    FontSize="32"
+                    FontAttributes="Bold"
+                    TextColor="Black"
+                    HorizontalOptions="Center" />
+                    <Label 
+                    Text="Sélectionnez votre langue"
+                    FontSize="32"
+                    FontAttributes="Bold"
+                    TextColor="Black"
+                    HorizontalOptions="Center" />
 
-                    <!-- Language Selection -->
-                    <StackLayout 
+                <!-- Language Selection -->
+                <StackLayout 
                     Orientation="Vertical"
                     Spacing="10"
                     HorizontalOptions="FillAndExpand">
 
-                        <Label 
-                        Text="Language / Lenguaje / Langue:"
-                        FontSize="24"
-                        TextColor="Black"
-                        HorizontalTextAlignment="Center" />
-
-                        <Picker 
+                    <Picker 
                         x:Name="LanguagePicker"
                         ItemsSource="{Binding Languages}"
                         SelectedItem="{Binding SelectedLanguage}"
-                        Title="Choose Language"
+                        Title="{x:Static strings:AppResources.Q1ChooseLangaugePicker}"
                         TitleColor="Black"
                         TextColor="Black"
                         FontSize="20"
@@ -55,7 +63,7 @@
 
                     <!-- Next Button -->
                     <Button 
-                    Text="Next →" 
+                    Text="{x:Static strings:AppResources.QNextButton}" 
                     Clicked="Button_Clicked"
                     FontSize="20"
                     TextColor="Black"

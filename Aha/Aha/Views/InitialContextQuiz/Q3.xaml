@@ -4,7 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModels="clr-namespace:Aha.ViewModels"
     x:Class="Aha.Views.InitialContextQuiz.Q3"
-    Title="">
+    xmlns:strings="Aha.Resources"
+    Title=""
+    BackgroundColor="White">
 
     <!-- Set the BindingContext to the ContextQuizViewModel -->
     <ContentPage.BindingContext>
@@ -23,14 +25,14 @@
                     HorizontalOptions="CenterAndExpand">
 
                         <Label 
-                        Text="Select Interests"
+                        Text="{x:Static strings:AppResources.Q3SelectInterests1}"
                         FontSize="36"
                         FontAttributes="Bold"
                         TextColor="Black"
                         HorizontalOptions="Center" />
 
                         <Label 
-                        Text="Check the box next to subjects that interest you."
+                        Text="{x:Static strings:AppResources.Q3SelectInterests2}"
                         FontSize="24"
                         TextColor="Black"
                         HorizontalTextAlignment="Center"
@@ -52,7 +54,7 @@
                                     IsChecked="{Binding Science}" 
                                     Color="#346beb" />
                                     <Label 
-                                    Text="Science"
+                                    Text="{x:Static strings:AppResources.Q3Science}"
                                     FontSize="20"
                                     TextColor="Black"
                                     VerticalOptions="Center" />
@@ -63,7 +65,7 @@
                                     IsChecked="{Binding Geography}" 
                                     Color="#346beb" />
                                     <Label 
-                                    Text="Geography"
+                                    Text="{x:Static strings:AppResources.Q3Geography}"
                                     FontSize="20"
                                     TextColor="Black"
                                     VerticalOptions="Center" />
@@ -74,7 +76,7 @@
                                     IsChecked="{Binding History}" 
                                     Color="#346beb" />
                                     <Label 
-                                    Text="History"
+                                    Text="{x:Static strings:AppResources.Q3History}"
                                     FontSize="20"
                                     TextColor="Black"
                                     VerticalOptions="Center" />
@@ -85,7 +87,7 @@
                                     IsChecked="{Binding Oceans}" 
                                     Color="#346beb" />
                                     <Label 
-                                    Text="Oceans"
+                                    Text="{x:Static strings:AppResources.Q3Oceans}"
                                     FontSize="20"
                                     TextColor="Black"
                                     VerticalOptions="Center" />
@@ -99,7 +101,7 @@
                                     IsChecked="{Binding Automation}" 
                                     Color="#346beb" />
                                     <Label 
-                                    Text="Automation"
+                                    Text="{x:Static strings:AppResources.Q3Automation}"
                                     FontSize="20"
                                     TextColor="Black"
                                     VerticalOptions="Center" />
@@ -110,7 +112,7 @@
                                     IsChecked="{Binding Technology}" 
                                     Color="#346beb" />
                                     <Label 
-                                    Text="Technology"
+                                    Text="{x:Static strings:AppResources.Q3Technology}"
                                     FontSize="20"
                                     TextColor="Black"
                                     VerticalOptions="Center" />
@@ -121,7 +123,7 @@
                                     IsChecked="{Binding Engineering}" 
                                     Color="#346beb" />
                                     <Label 
-                                    Text="Engineering"
+                                    Text="{x:Static strings:AppResources.Q3Engineering}"
                                     FontSize="20"
                                     TextColor="Black"
                                     VerticalOptions="Center" />
@@ -132,7 +134,7 @@
                                     IsChecked="{Binding Art}" 
                                     Color="#346beb" />
                                     <Label 
-                                    Text="Art"
+                                    Text="{x:Static strings:AppResources.Q3Art}"
                                     FontSize="20"
                                     TextColor="Black"
                                     VerticalOptions="Center" />
@@ -143,7 +145,7 @@
                                     IsChecked="{Binding Music}" 
                                     Color="#346beb" />
                                     <Label 
-                                    Text="Music"
+                                    Text="{x:Static strings:AppResources.Q3Music}"
                                     FontSize="20"
                                     TextColor="Black"
                                     VerticalOptions="Center" />
@@ -154,7 +156,7 @@
 
                         <!-- Finish Button -->
                         <Button 
-                        Text="Finish" 
+                        Text="{x:Static strings:AppResources.QFinish}" 
                         Command="{Binding SaveContextCommand}"
                         FontSize="20"
                         TextColor="Black"
