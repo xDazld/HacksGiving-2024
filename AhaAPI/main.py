@@ -1,4 +1,5 @@
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from fastapi.middleware.cors import CORSMiddleware
 
 from chat import prompt_model
 from connection_manager import ConnectionManager
@@ -6,6 +7,13 @@ from knowledge_loading import ExhibitEmbeds
 from user import User
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 manager = ConnectionManager()
 
