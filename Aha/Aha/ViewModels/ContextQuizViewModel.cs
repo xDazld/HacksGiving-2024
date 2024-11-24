@@ -11,7 +11,7 @@ namespace Aha.ViewModels
     public class ContextQuizViewModel : AbstractViewModel
     {
         private List<String> _languages = ["English", "Espanol", "Francais"];
-        public List<String> Languages { get { return _languages; } }
+        public List<String> Languages { get => _languages; }
         public string SelectedLanguage { get; set; } = "English";
         public int Age { get; set; }
 

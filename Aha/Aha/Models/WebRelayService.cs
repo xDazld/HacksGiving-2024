@@ -14,7 +14,7 @@ namespace Aha.Models
     public class WebRelayService
     {
         private readonly Socket socket;
-        private static WebRelayService _webRelayService = new WebRelayService();
+        private static WebRelayService _webRelayService = new();
         public const int portNumber = 8080;
         public event Action<string>? MessageReceived;
         private readonly IPEndPoint ipEndPoint;

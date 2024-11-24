@@ -19,7 +19,7 @@ namespace Aha.Models
         public readonly string FilePath;
         public UserContext User { get; set; }
 
-        private static UserContextManager instance = new UserContextManager();
+        private static UserContextManager instance = new();
 
         private UserContextManager()
         {
