@@ -46,6 +46,7 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int) -> None:
                     },
                     websocket,
                 )
+                user.save()
                 print()
             elif event == "chatMessage":
                 print(f"{client_id} sent chat message")
@@ -65,6 +66,7 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int) -> None:
                     websocket,
                 )
                 print()
+                user.save()
 
     except WebSocketDisconnect:
         manager.disconnect(websocket)
