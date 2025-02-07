@@ -18,8 +18,11 @@ class User:
         Initializes the User class
         :param id: the user id
         """
-        if os.path.exists(f"{USER_DB_PATH}{id}.json"):
-            with open(f"{USER_DB_PATH}{id}.json", "r") as json_file:
+        user_file_path = os.path.normpath(f"{USER_DB_PATH}{id}.json")
+        if not user_file_path.startswith(os.path.abspath(USER_DB_PATH)):
+            raise Exception("Invalid user ID")
+        if os.path.exists(user_file_path):
+            with open(user_file_path, "r") as json_file:
                 self.user_data = json.load(json_file)
         else:
             self.user_data = {
@@ -35,7 +38,10 @@ class User:
         Saves the user data
         :return:
         """
-        with open(f"{USER_DB_PATH}{self.user_data['id']}.json", "w") as json_file:
+        user_file_path = os.path.normpath(f"{USER_DB_PATH}{self.user_data['id']}.json")
+        if not user_file_path.startswith(os.path.abspath(USER_DB_PATH)):
+            raise Exception("Invalid user ID")
+        with open(user_file_path, "w") as json_file:
             json.dump(self.user_data, json_file)
 
     def __del__(self):
